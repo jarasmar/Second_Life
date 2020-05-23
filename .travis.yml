@@ -1,0 +1,14 @@
+language: ruby
+cache:
+- bundler
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake assets:precompile
+deploy:
+  provider: heroku
+  api_key: Py8NPQzt77tmt5b9IshSN81Pldh1Ro65mNC0mLUMJ1jGRTEr7W2SYFTO4l2knK543kwew3/QFf9YixIb90i4/bnJ7RPPPA5Dewq7G8lal8HswHtGv3h/PKHhZuNG0dBFFduLWmA2fRRoh5Wwn0wmHFYOG/6+widxHRvO53fJSzs236zr/9DyBiHGHUPX7W1pIBeY2pXUE1yIh63jVlNAVgmkXrmyBik3aOG9VQS6Tjkhe4vrXJ2HSWAf/cTNQpr1XkcWG1WaLvN3/bv/aSsc/2ErtZ1Wjdy0UhfmYvYiKyWtynR4V1E7xmErEcnzbTbaeqE/h8IA+FU5H0g9zdBY9Z1roAr+/oQQk1pB1QE7WXi03bLfPM+n6EJRRCWu4Luo2P41rAV5pTbV0Fzwkk/ZR+jODXWaLx/87WidVNDTi1nCcWY9CqKXWPzEp4H+OhpLcCkML5f/Zpb72C4mwFiyw1yaI8GxQYfE2HhzrtH+bFUACkiL4t9XMzXusvZx5lScb4c41LKZPKtXyLCCe50vcgjBJRZLvpgwgyNzmNLFEHKi69EI9ACvKuIQTeT0W5KKBOrHuWVVuDp2Kr4b7IKIt+5Q0m3i3lrvXBjeGvXeNNdk2kLpj2SqvJd5+HadJHVSC3RVXmAP92sOLF53b6/fBW9AehHuH3Gi84JpP+/ipuA=
+    secure: KEY
+  app: second-life-app
+  on:
+    repo: jarasmar/Second_Life

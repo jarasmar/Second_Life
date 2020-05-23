@@ -48,6 +48,13 @@ An app based on Google Maps API where users can mark the exact location of any k
 - Faceboook Group: https://www.facebook.com/groups/812378782152823/
 - Freecycle: https://www.freecycle.org/browse/UK
 
+## How to run the app
+Clone or Download the repository
+Type in your terminal: 
+```
+foreman start -f Procfile.dev
+```
+Visit `http://localhost:5000/`
 
 <!-- 
 Things to cover:

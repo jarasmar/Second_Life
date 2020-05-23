@@ -3,8 +3,11 @@ rvm:
 - 2.6.3
 services:
 - postgresql
-before_script:
+before_install:
+- gem uninstall bundler
+- gem install bundler --version '2.1.4'
 - bundle install
+before_script:
 - psql -c 'create database second_life_test;' -U postgres
 - bin/rails db:migrate
 dist: trusty

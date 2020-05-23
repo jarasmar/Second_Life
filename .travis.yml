@@ -9,12 +9,11 @@ before_script:
 - bundle exec rake db:migrate
 - bundle exec rake assets:precompile
 deploy:
-  matrix:
-  - secure: sLs3lntuEjYD+shMkidB7d0Vwou1PvuW/aQHGG5kjVVxDHAAz7S2VODeT/yhp6HxoGtmvjIhz7eurm6pmbVDTdSFSZasxH4hNn67A7vSNkanlLtLnHeTGKbzaHnA11HEFteLq4q7aqUjExeqEJQOhFtWz5s5LUJrOeMWNXHmwsdAe6LGTc1pJ7y1GfWa0sRybRRmZEkam5VO5bBAFx9lv77+AZ8Q7w7SG6Xc9TpqjEF4x7HEWmysAlQpoLDJqLa0p/aqTnt9SC96NGf/4m5cJ4u5T4XgzcyORc5wEgWPNoNdazK/Y2dw6/oOw+yzI8OpSZhbnjnh12oJgnSAgCPS+oA/3or62pseLte5oXLH1Tlpdyqc5o8UolcPdpBdeDrgeztpO/27spkJ3TwEXnDWtLUKN8zDdggEURq5K3dMmOPW8Ivohp7/Fkm60/tu32aK7tM5TE0vIify74iq9XupPnSTBMGmvVQmZTuZy6rrQoGg1BtAmVXyV1Tj1ZOKtDHtmFtwiuWMyfQBoRv5G+W8X0K5hULtwEgi0Xwve9IvvkubUh/0g14pH2feHaPxQ9CuwIk1Frpqpr9zMUjZqjxP+bH0ZOcoJ4sdjZNET3/yXBfLr+xszQidiFzPi+TZURqSUlI/WCmN1lZjqEVzQb5JmNaBJ3+uHtm1bKn6als9ivg=
-    provider: heroku
-    strategy: api
-    app: second-life-app
-    on:
-      repo: jarasmar/Second_Life
+  provider: heroku
   api_key:
     secure: A7rMGkOgRu5d7N6M2LidqEwmj9ogC7AMb3J04OHpz8gbwWK6roylLENGTDcz1sx+ngYqAFPyDXnYmzKw7O13uw+SWsvlM7YoUspkuCu82TeXK7+9UPrevJh6b6tKBqHMQfvrGME91nQT4gCWxCIEvw13vAF9xzmjtUR6Y1M+pBBHW+kly+Ql7omTPFrzIgLVpvyAT1Lv3utTYrrWrc+n3QiiIlPfaYpBJ4g2UpR4UeGEwcMRCqHIYge6NDsUDw3hW4vCCCHq3krH2ioZb90XT3vX6GQ6FdcUfSDfnzb5yrRc3UvmpSWJvZuIw7uJThhHmg8gxsTlbG7VOjDaBWuGGrzL48zopKdkByu19gr0pHIXD6+OvkICSp+E6KvnTfSmsj0R/vMAJc4FS/qjIlNMCDOWQ/o4iexa+xuS4c7bqaqFpH7fBdrZjoLtfDr5DHoF8lG/gpcz1VdI/lQr5ZJ0IMJp2p6qwGiKp0y9YF9mWR9yTb2hrqTRuBn/Tfe+hreeo6bal5Y8LF0xv/CVTlCTwzZvzL4jpC8sJZGP/S1YuP4DyfNAbDfHMgddqUw/oMd9mnSCjsXHqFwk0HLrn5OhbtEJ8EIoTzlkU9yDitXtkuDphItz2yeeNHoniBNqzi3d6EM3nY7a5J13nX2H6t60TncnFnur4EIrRO39V3cF09k=
+  strategy: api
+  app: second-life-app
+  on:
+    repo: jarasmar/Second_Life
+  

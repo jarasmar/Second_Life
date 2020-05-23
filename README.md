@@ -54,7 +54,10 @@ Type in your terminal:
 ```
 foreman start -f Procfile.dev
 ```
-Visit `http://localhost:5000/`
+Visit http://localhost:5000/
+
+## Heroku App
+https://second-life-app.herokuapp.com/
 
 <!-- 
 Things to cover:

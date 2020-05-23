@@ -1,15 +1,26 @@
-language: ruby
-cache:
-- bundler
-before_script:
-- bundle exec rake db:create
-- bundle exec rake db:migrate
-- bundle exec rake assets:precompile
-deploy:
-  provider: heroku
-  api_key:
-    secure: 
-  secure: "lMV8di0pK6CAQrrxSjbPv/PoUwWbEK+5y1lZ/Rlvz+bndMSM30VO9zaZHFNVl7Eovg3LsMyiJhpdfuWNEsm3VhjjVhJYtzWwAqt3fRgcj/Xxf6nYl0EIwQcirxtRuj0lwwPdmXTMGKReCzh5IsBUk3/vxpYcwKzQFgUk9quV5GX2ERLQG3GK6In7wco1kLHHZ5pRVLgy2cjdWzOWszVccy+s4SAZrk0qabGRhr3N91e90Y6bXgHBxyc9s1irrVgT5siprwYfnEanH4Au6eBU76fABUh+f7tRbU16TwiHOQ96Fw00qhcwMerklvej3lU7w5VNYeS9YixabZTxHcChzlvIWG5yrmRLl+jQkq0+Dyv2LGfHv1NY9lyG4W0XMKeUqLhYXojb6BPiIpyJCMAoAyy8xmPcZspK3tPnJYhNytNEVVAVdn9DuhjXre4Yf3IjA9FCgXvq+jrbTYXD9dQj4/34JJ5iWGgeIiM94qJ+HPtF05S1FDVhtnKmcgHfnWFaYN7Z0jNwmRRseFpk9GA/LBh6DcO8Ju6B5F5dp1459vMV7d9aoEqHifljah4LnVCy+V9+TGWDNb5dW5P4CJIIR4i1Nprz5QWSwF1YFeIvDhco6/ho5zYHMly+z1Y/2uxVmNULoJxdNdz3rhGha6Gvt0BTb/6adsVXvYg1yZhJLEk="
-  app: second-life-app
-  on:
-    repo: jarasmar/Second_Life
+{
+  "language": "ruby",
+  "os": [
+    "linux"
+  ],
+  "dist": "xenial",
+  "cache": {
+    "bundler": true
+  },
+  "before_script": [
+    "bundle exec rake db:create",
+    "bundle exec rake db:migrate",
+    "bundle exec rake assets:precompile"
+  ],
+  "deploy": [
+    {
+      "secure": "lMV8di0pK6CAQrrxSjbPv/PoUwWbEK+5y1lZ/Rlvz+bndMSM30VO9zaZHFNVl7Eovg3LsMyiJhpdfuWNEsm3VhjjVhJYtzWwAqt3fRgcj/Xxf6nYl0EIwQcirxtRuj0lwwPdmXTMGKReCzh5IsBUk3/vxpYcwKzQFgUk9quV5GX2ERLQG3GK6In7wco1kLHHZ5pRVLgy2cjdWzOWszVccy+s4SAZrk0qabGRhr3N91e90Y6bXgHBxyc9s1irrVgT5siprwYfnEanH4Au6eBU76fABUh+f7tRbU16TwiHOQ96Fw00qhcwMerklvej3lU7w5VNYeS9YixabZTxHcChzlvIWG5yrmRLl+jQkq0+Dyv2LGfHv1NY9lyG4W0XMKeUqLhYXojb6BPiIpyJCMAoAyy8xmPcZspK3tPnJYhNytNEVVAVdn9DuhjXre4Yf3IjA9FCgXvq+jrbTYXD9dQj4/34JJ5iWGgeIiM94qJ+HPtF05S1FDVhtnKmcgHfnWFaYN7Z0jNwmRRseFpk9GA/LBh6DcO8Ju6B5F5dp1459vMV7d9aoEqHifljah4LnVCy+V9+TGWDNb5dW5P4CJIIR4i1Nprz5QWSwF1YFeIvDhco6/ho5zYHMly+z1Y/2uxVmNULoJxdNdz3rhGha6Gvt0BTb/6adsVXvYg1yZhJLEk=",
+      "provider": "heroku",
+      "strategy": "api",
+      "app": "second-life-app",
+      "on": {
+        "repo": "jarasmar/Second_Life"
+      }
+    }
+  ]
+}

@@ -1,9 +1,6 @@
 language: ruby
-os:
-- linux
-dist: xenial
 cache:
-  bundler: true
+- bundler
 before_script:
 - bundle exec rake db:create
 - bundle exec rake db:migrate
@@ -11,9 +8,7 @@ before_script:
 deploy:
   provider: heroku
   api_key:
-    secure: A7rMGkOgRu5d7N6M2LidqEwmj9ogC7AMb3J04OHpz8gbwWK6roylLENGTDcz1sx+ngYqAFPyDXnYmzKw7O13uw+SWsvlM7YoUspkuCu82TeXK7+9UPrevJh6b6tKBqHMQfvrGME91nQT4gCWxCIEvw13vAF9xzmjtUR6Y1M+pBBHW+kly+Ql7omTPFrzIgLVpvyAT1Lv3utTYrrWrc+n3QiiIlPfaYpBJ4g2UpR4UeGEwcMRCqHIYge6NDsUDw3hW4vCCCHq3krH2ioZb90XT3vX6GQ6FdcUfSDfnzb5yrRc3UvmpSWJvZuIw7uJThhHmg8gxsTlbG7VOjDaBWuGGrzL48zopKdkByu19gr0pHIXD6+OvkICSp+E6KvnTfSmsj0R/vMAJc4FS/qjIlNMCDOWQ/o4iexa+xuS4c7bqaqFpH7fBdrZjoLtfDr5DHoF8lG/gpcz1VdI/lQr5ZJ0IMJp2p6qwGiKp0y9YF9mWR9yTb2hrqTRuBn/Tfe+hreeo6bal5Y8LF0xv/CVTlCTwzZvzL4jpC8sJZGP/S1YuP4DyfNAbDfHMgddqUw/oMd9mnSCjsXHqFwk0HLrn5OhbtEJ8EIoTzlkU9yDitXtkuDphItz2yeeNHoniBNqzi3d6EM3nY7a5J13nX2H6t60TncnFnur4EIrRO39V3cF09k=
-  strategy: api
-  app: second-life-app
+    secure: i+qNP4RyTOK9z9h3Cf8MhfAVawn3OXhxu0VeLsaJ66tQB9/g26tCL/gfBKfhOSgDRB78zWBqe7CFMZ7TYBIaryW7Fl5ku5UzKC7dneU5wqdsRV399P2hWxVICjYgfBvM9GrGfn+CU83w6a2hqd1JimLdH/KeBDwOb764eIMIEIQfBgvIfbWOcSxrU7qenqzMTZ/+uh1z+UkMnYdB3weae9NXZu9vj8eVuyX1bwoi1cVE32P5zOM/Vxpjqqo9KgdDjXzG1yX3pXlTUAnNbPz/a4WoSQJ3PLdT1TXlARm0p9ePB9JQZvTYCdXbV1TPzSNc9QZYcMrPyQsiDqmxGRl7IAvwulLVqyiS1Exf/9C0Z0jHFjGQa3Le0P4c5aNrmj4Hmr18qpLaoDRO/cqyMo25FObaekcvLEPgmrAV39KB1NV4/2iSo89eztSxEEs5Kfq6BOHV6Pd30biUgT6KzlY/Rau3z5jhAEodxC7qv6JDqajFwdFxNG/3Do+kSXsxmSbVTkO7DaTnqGzQRnP8klKxXT4HdBQT6MP2cnB0XRZbCT7mr4BIB80bbT5vuJICDK/humMSioqeituwg4WzJ/r+W/Pq9w7dED1quB9Eu4ecJnnOVWhRWTfjiEJtMIM6GvMMhchfdjHTMD6SZ72YIJv1ypaU+FIKldaWsnhryGIJSrs=
+  app: rails-test-app-article
   on:
-    repo: jarasmar/Second_Life
-  
+    repo: felipeluizsoares/rails-test-app

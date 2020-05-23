@@ -71,3 +71,4 @@ production:
   database: second_life_production
   username: second_life
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

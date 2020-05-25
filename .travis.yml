@@ -17,6 +17,7 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
+  strategy: api
   api_key: 
     secure: "DpV3SFVrNcXqcyE5BAs+FBckQHjNYX48ngthUPVwmDogLfJh/dv/Kd3y30MUZqQhIaQ++dmBzirvejiPnsFVVoC4U3hGItLDmOX59v8p/mRzT7o8K2/7Zw7LNS55TI1qQ/FrVyvS2N8SKEkpXiLKk0aRliJS+zlA73335xE25Qry3pIQ4Vw6X6+2IZJOPxmV4moYAaK0yxO7Cxtw9AKMSwFQX4CgZ4sDOM51vCsi0DgwlBObyePBOT+2+Pkd6azPZbCKiYb3cnCYtUASiA5gynU++kAqxPEGYkKtCsvDBTDn+u2834BVZlptUL+QD9eGXk2oy4wMo61Z/+OEm4GHTFMsPzUdQd9VLEUzcbge5vims31C1eWJERTxT48hvy51hKXFm0+v+mxK7k3QcEBhgWY0VKY7NwAiGwNCljs8bK9W4yGBfSc+gwW843kuM7mSKD/x2djfzvKMa9hL0QJv7gZSl+ZsU2ZN+c1r/tvLWPKQ9UyTzcHYRkmJzAZg7VBGmGwSdx0o9ayVFEsLCU5hQrTwi0ei65i4u4cL+UCFu2kDx96S7E8aUMPTHF1hDqTwRn5pd+XDtGGjpMlthneSi0wcdK9F7ZKzL5S20gMyDgRyX6GYBcbD+0cchB5Fpou3jcC3S5sAJvfOtXdRR7WVfV6ZoXZq4nwO+rVN6M+Bl5s="
   app: second-life-app

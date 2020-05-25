@@ -1,2 +1,11 @@
-<h1>Sessions#welcome</h1>
-<p>Find me in app/views/sessions/welcome.html.erb</p>
+<h1>Welcome to our App</h1>
+
+<% if logged_in? %>
+
+  <h1>You are already logged in, <%= current_user.username %> babes</h1>
+
+<%end%>
+
+<%= button_to "login", '/login', method: :get%>
+
+<%= button_to "Sign Up", '/users/new', method: :get%>

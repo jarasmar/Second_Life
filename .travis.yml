@@ -2,7 +2,7 @@ language: ruby
 rvm:
 - 2.6.3
 addons:
-  - postgresql: "9.6"
+- postgresql: '9.6'
 services:
 - postgresql
 before_install:
@@ -18,8 +18,8 @@ script:
 deploy:
   provider: heroku
   strategy: api
-  api_key: 
-    secure: "DpV3SFVrNcXqcyE5BAs+FBckQHjNYX48ngthUPVwmDogLfJh/dv/Kd3y30MUZqQhIaQ++dmBzirvejiPnsFVVoC4U3hGItLDmOX59v8p/mRzT7o8K2/7Zw7LNS55TI1qQ/FrVyvS2N8SKEkpXiLKk0aRliJS+zlA73335xE25Qry3pIQ4Vw6X6+2IZJOPxmV4moYAaK0yxO7Cxtw9AKMSwFQX4CgZ4sDOM51vCsi0DgwlBObyePBOT+2+Pkd6azPZbCKiYb3cnCYtUASiA5gynU++kAqxPEGYkKtCsvDBTDn+u2834BVZlptUL+QD9eGXk2oy4wMo61Z/+OEm4GHTFMsPzUdQd9VLEUzcbge5vims31C1eWJERTxT48hvy51hKXFm0+v+mxK7k3QcEBhgWY0VKY7NwAiGwNCljs8bK9W4yGBfSc+gwW843kuM7mSKD/x2djfzvKMa9hL0QJv7gZSl+ZsU2ZN+c1r/tvLWPKQ9UyTzcHYRkmJzAZg7VBGmGwSdx0o9ayVFEsLCU5hQrTwi0ei65i4u4cL+UCFu2kDx96S7E8aUMPTHF1hDqTwRn5pd+XDtGGjpMlthneSi0wcdK9F7ZKzL5S20gMyDgRyX6GYBcbD+0cchB5Fpou3jcC3S5sAJvfOtXdRR7WVfV6ZoXZq4nwO+rVN6M+Bl5s="
+  api_key:
+    secure: TxeFehe38qxlkj0zQsvCa8gKzg3bWKVBXr/cyrl6FQVP1Qwv3gAvupS4bmIsAKoQv3+PQXrmBenCSmt9KW8ABkQ40J47mbIF6X5Yz7S6mCrBJCh+rQ9ivr0MkZBZP8pj7nussv0xkBdJ6XGI2OkmvhMqSxVww85IbHXQRUAxVoU4etpHmM9Cydp+vONCyozhF6f3m+dy6txaHHlUSeQ8F8ey1eaFy4E7XXdB/YZZjRxpeftsF2rDFKLob9U4OTQLX7FH0jB6HHw/euTSn1t/Zpy4NQsHiZ6vx6QZAnFapPk8/diO3/Va4/NUZmNZy7haX/dOhSCS5PiyD0p/XNHhA3P5zutQb5VQxiJrxuPqp4ffO7Apwns484Df848zPJjYN6pnROdPayXqIv1yoPrWdt0U/1QSKzRrAtEhtnN6QZ88UG4kXJgh8QiJxw6OIm9+IBCNAdSNcN3NFLim4CF6xRzlN6bVrHoNt6Mvo8KIQxlr3gfwzgLzxA0S7Ots/S1zoGv5wqLQ9IBXg8kgNf9zX5FLQtDbT9P1GKDsh+SYHEzayF1yspCQkHNAa/ks1SNYZifvJUM2Y/MPTCPLG2ZzReyxySC1S6DliAMbmwlaSs0Bq+S4trCMD414JYweqJTp5HXTEaTOXHqDfaAnjgU5tuNdCmfvVoT5DllMyfDUrpU=
   app: second-life-app
   on:
     repo: jarasmar/Second_Life

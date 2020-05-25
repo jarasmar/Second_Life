@@ -4,3 +4,5 @@
   <h2>Welcome <%= current_user.username %> </h2>
 
 <%end%>
+
+<%= button_to "logout", '/logout', method: :delete%>

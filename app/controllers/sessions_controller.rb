@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login
+  
   def create
     @user = User.find_by(username: params[:username])
 
@@ -10,8 +12,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
-    User.find(session[:user_id]).destroy      
+  def destroy      
     session[:user_id] = nil         
     redirect_to '/login' 
   end  

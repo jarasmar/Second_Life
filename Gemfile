@@ -67,4 +67,3 @@ gem 'popper'
 gem 'bootstrap'
 gem 'foreman'
 gem 'bcrypt'
-

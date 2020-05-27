@@ -14,21 +14,21 @@ class PostsController < ApplicationController
     @user = User.new
     @post = Post.create(post_params)
     session[:user_id] = @user.id
-    redirect_to '/posts/index'
+    redirect_to '/posts'
   end
 
-  def acceptable_image
-    return unless main_image.attached?
-
-    unless main_image.byte_size <= 4.megabyte
-      errors.add(:main_image, "is too big")
-    end
-
-    acceptable_types = ["image/jpeg", "image/png"]
-    unless acceptable_types.include?(main_image.content_type)
-      errors.add(:main_image, "must be a JPEG or PNG")
-    end
-  end
+  # def acceptable_image
+  #   return unless main_image.attached?
+  #
+  #   unless main_image.byte_size <= 4.megabyte
+  #     errors.add(:main_image, "is too big")
+  #   end
+  #
+  #   acceptable_types = ["image/jpeg", "image/png"]
+  #   unless acceptable_types.include?(main_image.content_type)
+  #     errors.add(:main_image, "must be a JPEG or PNG")
+  #   end
+  # end
 
   private
   def post_params

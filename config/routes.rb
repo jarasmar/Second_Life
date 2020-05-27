@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get 'posts', to: 'posts#show'
   get 'posts/new', to: 'posts#new'
-  post 'posts/create', to: 'posts#create'
+  post 'posts', to: 'posts#create'
   # delete 'posts', to: 'posts#destroy'
 
   root 'home#index'

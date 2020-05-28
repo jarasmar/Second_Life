@@ -11,9 +11,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = User.new
+    @user = User.find(current_user.id)
     @post = Post.create(post_params)
-    session[:user_id] = @user.id
+    @post.user_id = @user.id
+    @post.save
+  
     redirect_to '/posts'
   end
 
@@ -32,7 +34,8 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:main_image, :title, :description)
+    user_id = @user.id
+    params.require(:post).permit(:main_image, :title, :description, :user_id)
   end
   #
   # def destroy

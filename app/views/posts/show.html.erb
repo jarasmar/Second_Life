@@ -4,4 +4,6 @@
 <%= image_tag post.main_image %> <br>
 <h3><%= post.title %> </h3>
 <p><%= post.description %> </p><br>
+<p><%= button_to 'Edit', posts_path %>
+<p><%= button_to 'Delete', posts_path, :method => :delete, data: { confirm: "Are you sure?" }%> </p>
 <% end %>

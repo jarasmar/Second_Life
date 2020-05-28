@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get 'posts', to: 'posts#show'
   get 'posts/new', to: 'posts#new'
   post 'posts', to: 'posts#create'
-  # delete 'posts', to: 'posts#destroy'
+  delete 'posts', to: 'posts#destroy'
+  get 'posts/:id/edit', to: 'posts#edit'
+  post 'posts', to: 'posts#update'
 
   root 'home#index'
 end

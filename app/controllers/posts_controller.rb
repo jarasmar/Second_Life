@@ -8,6 +8,10 @@ class PostsController < ApplicationController
      @post = Post.new
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   def create
     @user = User.find(current_user.id)
     @post = Post.create(post_params)
@@ -21,13 +25,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def update 
+    @post = Post.find(params[:id])
+    @post.update(params.require(:post).permit(:description, :main_image, :title))
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+  end
+
   private
   def post_params
-    user_id = @user.id
+    @user.id = user_id
     params.require(:post).permit(:main_image, :title, :description, :user_id)
   end
-  #
-  # def destroy
-  #
-  # end
 end

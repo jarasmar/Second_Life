@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :require_login
 
   def show
     @posts = Post.all
@@ -17,6 +16,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to '/posts'
     else
+      flash.now[:alert] = "Image must be less than 4MB and JPEG/PNG format."
       render 'new'
     end
   end

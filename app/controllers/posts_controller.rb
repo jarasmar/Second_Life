@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:destroy]
 
   def show
     @posts = Post.all
@@ -29,7 +28,13 @@ class PostsController < ApplicationController
   def update 
     @post = Post.find_by(params[:id])
     @post.update(params.require(:post).permit(:description, :main_image, :title))
-    redirect_to '/posts'
+
+    if @post.save
+      redirect_to '/posts'
+    else
+      flash.now[:alert] = "Image must be less than 4MB and JPEG/PNG format."
+      render 'new'
+    end
   end
 
   def destroy
@@ -42,9 +47,5 @@ class PostsController < ApplicationController
   def post_params
     user_id = @user.id
     params.require(:post).permit(:id, :main_image, :title, :description, :user_id)
-  end
-
-  def set_post
-    @post = Post.where(id = params[:id])
   end
 end

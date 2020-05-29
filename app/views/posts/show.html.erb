@@ -5,5 +5,5 @@
 <h3><%= post.title %> </h3>
 <p><%= post.description %> </p><br>
 <p><%= button_to 'Edit', 'posts/:id/edit', method: :get %>
-<p><%= button_to 'Delete', 'posts/:id/delete', method: :delete, data: { confirm: "Are you sure?" }%> </p>
+<p><%= button_to 'Delete', posts_path, :method => :delete, data: { confirm: "Are you sure?" }%> </p>
 <% end %>

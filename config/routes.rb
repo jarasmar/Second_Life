@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get 'posts/:id/edit', to: 'posts#edit'
   post 'posts', to: 'posts#update'
 
+
   root 'home#index'
 end

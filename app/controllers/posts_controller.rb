@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :require_login
 
   def show
     @posts = Post.all
@@ -17,17 +16,36 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to '/posts'
     else
+      flash.now[:alert] = "Image must be less than 4MB and JPEG/PNG format."
       render 'new'
     end
+  end
+
+  def edit
+    @post = Post.find_by(params[:id])
+  end
+
+  def update 
+    @post = Post.find_by(params[:id])
+    @post.update(params.require(:post).permit(:description, :main_image, :title))
+
+    if @post.save
+      redirect_to '/posts'
+    else
+      flash.now[:alert] = "Image must be less than 4MB and JPEG/PNG format."
+      render 'new'
+    end
+  end
+
+  def destroy
+    @post = Post.find_by(params[:id])
+    @post.destroy
+    redirect_to '/posts'
   end
 
   private
   def post_params
     user_id = @user.id
-    params.require(:post).permit(:main_image, :title, :description, :user_id)
+    params.require(:post).permit(:id, :main_image, :title, :description, :user_id)
   end
-  #
-  # def destroy
-  #
-  # end
 end

@@ -12,9 +12,9 @@ class PostsController < ApplicationController
     @user = User.find(current_user.id)
     @post = Post.create(post_params)
     @post.user_id = @user.id
-    
+
     if @post.save
-      redirect_to '/posts'
+      redirect_to '/'
     else
       flash.now[:alert] = "Image must be less than 4MB and JPEG/PNG format."
       render 'new'
@@ -25,12 +25,12 @@ class PostsController < ApplicationController
     @post = Post.find_by(params[:id])
   end
 
-  def update 
+  def update
     @post = Post.find_by(params[:id])
     @post.update(params.require(:post).permit(:description, :main_image, :title))
 
     if @post.save
-      redirect_to '/posts'
+      redirect_to '/'
     else
       flash.now[:alert] = "Image must be less than 4MB and JPEG/PNG format."
       render 'new'
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(params[:id])
     @post.destroy
-    redirect_to '/posts'
+    redirect_to '/'
   end
 
   private

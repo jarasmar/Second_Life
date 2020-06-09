@@ -1,9 +1,6 @@
-<h1> All Posts </h1>
-
-<% @posts.each do |post| %>
-<%= image_tag post.main_image %> <br>
-<h3><%= post.title %> </h3>
-<p><%= post.description %> </p><br>
-<p><%= link_to 'Edit', posts_edit_path, method: :get %>
-<p><%= button_to 'Delete', posts_path, :method => :delete, data: { confirm: "Are you sure?" }%> </p>
-<% end %>
+<br>
+<br>
+<br>
+<h1><%= @post.title %></h1>
+<p><%= image_tag @post.main_image %></p>
+<p><%= @post.description %></p>

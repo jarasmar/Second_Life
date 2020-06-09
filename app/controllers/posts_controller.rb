@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
 
   def show
-    @posts = Post.all
+    @post = Post.find(params[:id])
+  end
+
+  def find
+    @post = Post.find_by(params[:id])
   end
 
   def new
@@ -22,11 +26,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find_by(params[:id])
+    @post = Post.find(params[:id])
     @post.update(params.require(:post).permit(:description, :main_image, :title))
 
     if @post.save
@@ -38,7 +42,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
     redirect_to '/'
   end

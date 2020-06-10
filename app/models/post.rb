@@ -5,6 +5,9 @@ class Post < ApplicationRecord
   
   validates :title, length: { maximum: 100, too_long: 'has to be less than 100 characters' }
   validates :title, length: { minimum: 5, too_short: 'has to be more than 5 characters' }
+
+  validates :description, length: { maximum: 250, too_long: 'has to be less than 250 characters' }
+  validates :description, length: { minimum: 25, too_short: 'has to be more than 25 characters' }
   
   belongs_to :user
 

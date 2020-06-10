@@ -20,8 +20,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to '/'
     else
-      flash.now[:alert] = "Image must be less than 4MB and JPEG/PNG format."
-      flash.now[:alert] = "Title or description is too long"
+      flash.now[:image] = "Image must be less than 4MB and JPEG/PNG format."
       render 'new'
     end
   end

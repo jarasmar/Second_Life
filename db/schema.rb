@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_092023) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title", limit: 100
+    t.string "title"
     t.text "description"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false

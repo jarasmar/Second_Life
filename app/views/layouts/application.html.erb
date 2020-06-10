@@ -10,18 +10,15 @@
   </head>
 
   <body>
-    <% flash.each do |type, msg| %>
-      <div>
-        <%= msg %>
-      </div>
-    <% end %>
+    
     <nav>
       <% if current_user %>
-      <%= render "layouts/user_nav" %>
+        <%= render "layouts/user_nav" %>
       <% else %>
-      <%= render "layouts/public_nav" %>
+        <%= render "layouts/public_nav" %>
       <% end %>
     </nav>
+
     <%= yield %>
   </body>
 </html>

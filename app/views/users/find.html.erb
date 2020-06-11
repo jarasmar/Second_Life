@@ -1,0 +1,11 @@
+<h1><%= current_user.username %>'s posts</h1>
+
+<% @user_posts.reverse.each do |post| %>
+
+<%= image_tag post.main_image %>
+
+<h3><%= post.title %></h3>
+
+<p><%= post.description %></p>
+
+<% end %>

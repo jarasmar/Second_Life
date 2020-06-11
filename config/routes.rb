@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only: [:new, :create]
+  resources :profile, :controller => 'users', :as => 'users'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   post 'posts/:id/edit', to: 'posts#update'
   # get 'post/:id', to: 'posts#find'
   resources :posts
-  get 'user/:id', to: 'users#find'
+  # get 'user/:id', to: 'users#find'
   root 'home#index'
 end

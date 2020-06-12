@@ -1,4 +1,4 @@
-<h1><%= current_user.username %>'s posts</h1>
+<h1><%= current_user.username %>'s posts <%= image_tag event.profile_image %></h1>
 
 <% @user_posts.reverse.each do |post| %>
 

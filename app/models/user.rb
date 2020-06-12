@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_one_attached :profile_image
   
   validates_uniqueness_of :username, :message => '%{value} has already been taken'
   validates_uniqueness_of :email, :message => '%{value} has already been taken'

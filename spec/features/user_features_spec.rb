@@ -19,4 +19,21 @@ RSpec.feature "User features", type: :feature do
     click_link "Sign Out"
     expect(page).to have_content 'Log In'
   end
+
+  scenario "user can log in" do
+    create_user_and_sign_up_1
+    click_link "Sign Out"
+    fill_in("Username", with: "User1")
+    fill_in("Password", with: "password")
+    click_button "Login"
+    expect(page).to have_content 'User1'
+  end
+
+  scenario "a user can't log in if they haven't signed up" do
+    visit '/welcome'
+    click_button 'login'
+    fill_in("Username", with: "User1")
+    fill_in("Password", with: "password")
+    expect(page).to have_content "Log In"
+  end
 end

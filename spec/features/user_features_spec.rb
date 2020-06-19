@@ -36,4 +36,10 @@ RSpec.feature "User features", type: :feature do
     fill_in("Password", with: "password")
     expect(page).to have_content "Log In"
   end
+
+  scenario "A user can see their profile page" do
+    create_user_and_sign_up_1
+    click_link "View Profile"
+    expect(page).to have_content "User1's posts"
+  end
 end

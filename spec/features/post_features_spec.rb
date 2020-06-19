@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'sign_up_helper'
+require 'make_post_helper'
 
 RSpec.feature "post features", type: :feature do
   scenario "A user can make a post" do
@@ -10,6 +11,76 @@ RSpec.feature "post features", type: :feature do
     find('#post_main_image').click
     attach_file('test_photos/Test.jpg')
     click_button "Create Post"
+    expect(page).to have_content "Show"
     expect(page).to have_content "A Picture of my Nan"
+  end
+
+  scenario "A user can view their post" do
+    create_user_and_sign_up_1
+    make_a_post
+    click_link "Show"
+    expect(page).to have_content "A Picture of my Nan"
+    expect(page).not_to have_content "Show"
+  end
+
+  scenario "A user can edit their post" do
+    create_user_and_sign_up_1
+    make_a_post
+    click_link "Edit"
+    fill_in("Title", with: "Wait a minute...")
+    click_button "Save Post"
+    expect(page).to have_content "Wait a minute..."
+  end
+
+  scenario "A user can delete their post" do
+    create_user_and_sign_up_1
+    make_a_post
+    click_button "Delete"
+    expect(page).not_to have_content "A Picture of my Nan"
+  end
+
+  scenario "A user cannot delete/edit another users post" do
+    create_user_and_sign_up_1
+    make_a_post
+    click_link "Sign Out"
+    create_user_and_sign_up_2
+    expect(page).to have_content "A Picture of my Nan"
+    expect(page).to have_content "Show"
+    expect(page).not_to have_content "Delete"
+    expect(page).not_to have_content "Edit"
+  end
+
+  scenario "can't upload a post with a description of less than 25 characters" do
+    create_user_and_sign_up_1
+    click_link "New Post"
+    fill_in("Title", with: "A Picture of my Nan")
+    fill_in("Description", with: "Hello")
+    find('#post_main_image').click
+    attach_file('test_photos/Test.jpg')
+    click_button "Create Post"
+    expect(page).to have_content "Description has to be more than 25 characters"
+  end
+
+  scenario "can't upload a post with a title with less than 5 characters" do
+    create_user_and_sign_up_1
+    click_link "New Post"
+    fill_in("Title", with: "Nan")
+    fill_in("Description", with: "She has been left on the sidewalk to be picked up for free, ASAP")
+    find('#post_main_image').click
+    attach_file('test_photos/Test.jpg')
+    click_button "Create Post"
+    expect(page).to have_content "Title has to be more than 5 characters"
+  end
+
+  scenario "A post can't be bigger than 4mb and has to be JPEG or PNG" do
+    create_user_and_sign_up_1
+    click_link "New Post"
+    fill_in("Title", with: "A Picture of my Nan")
+    fill_in("Description", with: "She has been left on the sidewalk to be picked up for free, ASAP")
+    find('#post_main_image').click
+    attach_file('test_photos/Pizza.gif')
+    click_button "Create Post"
+    expect(page).to have_content "Main image has to be less than 4MB"
+    expect(page).to have_content "Main image must be a JPEG or PNG"
   end
 end

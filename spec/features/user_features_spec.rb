@@ -11,5 +11,12 @@ RSpec.feature "User features", type: :feature do
     find('#user_profile_image').click
     attach_file('test_photos/Test.jpg')
     click_button "Create User"
+    expect(page).to have_content 'User1'
+  end
+
+  scenario "user can sign out" do
+    create_user_and_sign_up_1
+    click_link "Sign Out"
+    expect(page).to have_content 'Log In'
   end
 end

@@ -37,9 +37,10 @@ RSpec.feature "User features", type: :feature do
     expect(page).to have_content "Log In"
   end
 
-  scenario "A user can see their profile page" do
+  scenario "A user can see their profile page and profile picture" do
     create_user_and_sign_up_1
     click_link "View Profile"
     expect(page).to have_content "User1's posts"
+    expect(page).to have_css("img[src$='Test.jpg']")
   end
 end

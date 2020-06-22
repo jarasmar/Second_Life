@@ -10,4 +10,10 @@ class User < ApplicationRecord
   validates :password, length: { in: 5..20 }
   
   has_many :posts
+
+  # before_create :set_default_profile_image
+  
+  # def set_default_profile_image
+  #   profile_image = '../assets/images/default_profile.png'
+  # end
 end

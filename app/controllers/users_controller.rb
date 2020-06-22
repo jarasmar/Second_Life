@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params.require(:user).permit(:username, :email, :password, :profile_image))
     session[:user_id] = @user.id
+    # @user.profile_image ||= "../assets/images/default_profile.png"
 
     if @user.save
       redirect_to '/'

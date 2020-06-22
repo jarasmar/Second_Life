@@ -3,6 +3,10 @@
   <br>
   <h3><%= post.title %> </h3>
   <p><%= post.description %> </p>
+  <p> Post created by: 
+    <% @user = User.find(params[:id] = post.user_id) %>
+    <%= @user.username %> 
+  </p>
   <p><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %></p><br>
   <p><%= link_to 'Show', post_path(post), method: :get %></p>
   <% if post.user_id === current_user.id %>

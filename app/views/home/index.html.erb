@@ -1,11 +1,16 @@
 <% @posts.reverse.each do |post| %>
-<%= image_tag post.main_image %> <br>
-<h3><%= post.title %> </h3>
-<p><%= post.description %> </p>
-<p><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %></p><br>
-<p><%= link_to 'Show', post_path(post), method: :get %></p>
-<% if post.user_id === current_user.id %>
-<p><%= link_to 'Edit', edit_post_path(post), method: :get %></p>
-<p><%= button_to 'Delete', post_path(post), :method => :delete, data: { confirm: "Are you sure?" }%> </p>
-<% end %>
+  <img height=200 width=200 <%= image_tag(post.main_image) if post.main_image.attached? %> </img>
+  <br>
+  <h3><%= post.title %> </h3>
+  <p><%= post.description %> </p>
+  <p> Post created by: 
+    <% @user = User.find(params[:id] = post.user_id) %>
+    <%= @user.username %> 
+  </p>
+  <p><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %></p><br>
+  <p><%= link_to 'Show', post_path(post), method: :get %></p>
+  <% if post.user_id === current_user.id %>
+  <p><%= link_to 'Edit', edit_post_path(post), method: :get %></p>
+  <p><%= button_to 'Delete', post_path(post), :method => :delete, data: { confirm: "Are you sure?" }%> </p>
+  <% end %>
 <% end %>

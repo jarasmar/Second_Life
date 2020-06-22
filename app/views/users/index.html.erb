@@ -1,16 +1,16 @@
 <h1><%= current_user.username %>'s posts</h1>
-<img height=100 width=100 <%= image_tag current_user.profile_image %></img>
+<img height=100 width=100 <%= image_tag(current_user.profile_image) if current_user.profile_image.attached? %></img>
 <br>
 <br>
 
 <% @user_posts.reverse.each do |post| %>
 
-<%= image_tag post.main_image %>
+  <img height=250 width=250 <%= image_tag(post.main_image) if post.main_image.attached? %> </img>
 
-<h3><%= post.title %></h3>
+  <h3><%= post.title %></h3>
 
-<p><%= post.description %></p>
+  <p><%= post.description %></p>
 
-<p><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %></p>
+  <p><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %></p>
 
 <% end %>

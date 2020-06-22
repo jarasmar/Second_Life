@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params.require(:user).permit(:username, :email, :password, :profile_image))
     session[:user_id] = @user.id
-    # @user.profile_image ||= "../assets/images/default_profile.png"
 
     if @user.save
       redirect_to '/'
@@ -17,7 +16,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    # @user = User.find(current_user.id)
     @user_posts = Post.where(user_id: current_user.id)
   end
 end

@@ -9,6 +9,7 @@ class Post < ApplicationRecord
   validates :description, length: { maximum: 250, too_long: 'has to be less than 250 characters' }
   validates :description, length: { minimum: 25, too_short: 'has to be more than 25 characters' }
 
+  # Adds default image if none attached
   after_commit :add_default_image, on: [:create, :update]
   
   belongs_to :user

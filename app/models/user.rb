@@ -9,11 +9,14 @@ class User < ApplicationRecord
   validates_format_of :email, :with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   validates :password, length: { in: 5..20 }
   
+  # Adds default image if none attached
+  after_commit :add_default_image, on: [:create, :update]
+  
   has_many :posts
 
-  # before_create :set_default_profile_image
-  
-  # def set_default_profile_image
-  #   profile_image = '../assets/images/default_profile.png'
-  # end
+  def add_default_image
+    unless profile_image.attached?
+      self.profile_image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default_profile.png")), filename: 'default_profile.png' , content_type: "image/png")
+    end
+  end
 end

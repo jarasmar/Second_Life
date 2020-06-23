@@ -13,6 +13,5 @@ Rails.application.routes.draw do
   post 'posts/:id/edit', to: 'posts#update'
   # get 'post/:id', to: 'posts#find'
   resources :posts
-  get 'profile/:id', to: 'users#show'
   root 'home#index'
 end

@@ -1,5 +1,5 @@
 <h1><%= @user.username %>'s posts</h1>
-<img height=100 width=100 <%= image_tag(current_user.profile_image) if current_user.profile_image.attached? %></img>
+<img height=100 width=100 <%= image_tag(@user.profile_image) if current_user.profile_image.attached? %></img>
 <br>
 <br>
 
@@ -12,5 +12,10 @@
   <p><%= post.description %></p>
 
   <p><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %></p>
+  <p><%= link_to 'Show', post_path(post), method: :get %></p>
+  <% if post.user_id === current_user.id %>
+  <p><%= link_to 'Edit', edit_post_path(post), method: :get %></p>
+  <p><%= button_to 'Delete', post_path(post), :method => :delete, data: { confirm: "Are you sure?" }%> </p>
+  <% end %>
 
 <% end %>

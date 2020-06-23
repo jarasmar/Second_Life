@@ -1,8 +1,5 @@
-<br>
-<br>
-<br>
 <h1><%= @post.title %></h1>
 <img height=250 width=250 <%= image_tag(@post.main_image) if @post.main_image.attached? %> </img>
 <p><%= @post.description %></p>
-<p> Post created by: <%= @user.username %></p>
+<p> Post created by:   <%= link_to @user.username, user_path(@user.id), method: :get %> </p>
 <p><%= @post.created_at.strftime('%d %B %Y | %I:%M%P ') %></p>

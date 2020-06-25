@@ -17,6 +17,10 @@ class Post < ApplicationRecord
   
   belongs_to :user
 
+  def address
+    [address, city].compact.join(', ')
+  end
+
   def acceptable_image
     return unless main_image.attached?
   

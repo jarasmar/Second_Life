@@ -11,6 +11,9 @@ class Post < ApplicationRecord
 
   # Adds default image if none attached
   after_commit :add_default_image, on: [:create, :update]
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed? 
   
   belongs_to :user
 

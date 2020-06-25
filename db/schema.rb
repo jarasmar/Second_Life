@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 2020_05_27_092023) do
     t.string "title"
     t.text "description"
     t.bigint "user_id"
-    t.string "location"
-    t.string "lat"
-    t.string "lng"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"

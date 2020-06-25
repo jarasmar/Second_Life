@@ -7,3 +7,26 @@
 <p><%= link_to 'Edit', edit_post_path(@post), method: :get %></p>
 <p><%= button_to 'Delete', post_path(@post), :method => :delete, data: { confirm: "Are you sure?" }%> </p>
 <% end %>
+<script>
+  geocode();
+
+  function geocode() {
+     var location = '4 selwyn gardens, Cambridge, Cambridgeshire';
+     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+     params: {
+       address: location,
+       key: '<%= Rails.application.credentials.dig(:google, :google_api_key) %>'
+     }
+  })
+  .then(function(response) {
+    console.log(response)
+    var latitude = response.data.results[0].geometry.location.lat;
+    var longitude = response.data.results[0].geometry.location.lng;
+    console.log(latitude);
+    console.log(longitude);
+  })
+  .catch(function(error){
+    console.log(error);
+  });
+}
+</script>

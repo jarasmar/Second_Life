@@ -78,6 +78,7 @@ GEM
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.2.0)
       aws-eventstream (~> 1, >= 1.0.2)
+    axios_rails (0.14.0)
     bcrypt (3.1.13)
     bcrypt (3.1.13-java)
     bindex (0.8.1)
@@ -343,6 +344,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk-s3
+  axios_rails
   bcrypt
   bootsnap (>= 1.4.2)
   bootstrap

@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post.user_id = @user.id
 
     # place = '#{@post.address}, #{@post.city}'
-    location = Geocoder.search(@post.address)
+    location = Geocoder.search(full_address)
     @post.latitude = location.first.coordinates[0]
     @post.latitude = location.first.coordinates[1]
 
@@ -55,5 +55,9 @@ class PostsController < ApplicationController
   def post_params
     user_id = @user.id
     params.require(:post).permit(:id, :main_image, :title, :description, :user_id, :address, :city)
+  end
+
+  def full_address
+    [@post.address, @post.city].compact.join(', ')
   end
 end

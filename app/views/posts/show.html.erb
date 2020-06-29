@@ -8,3 +8,26 @@
 <p><%= link_to 'Edit', edit_post_path(@post), method: :get %></p>
 <p><%= button_to 'Delete', post_path(@post), :method => :delete, data: { confirm: "Are you sure?" }%> </p>
 <% end %>
+
+<div style='width: 800px;'>  
+  <div id="map" style='width: 800px; height: 400px;'></div>  
+</div>  
+
+<script type="text/javascript">  
+handler = Gmaps.build('Google');  
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
+  markers = handler.addMarkers([  
+    {  
+      "lat": 37.3333945,  
+      "lng": -121.8806499,  
+      "picture": {  
+        "width":  32,  
+        "height": 32  
+      },  
+      "infowindow": "SJSU"  
+    }  
+  ]);  
+  handler.bounds.extendWith(markers);  
+  handler.fitMapToBounds();  
+});  
+</script>

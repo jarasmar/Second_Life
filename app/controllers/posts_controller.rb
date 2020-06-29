@@ -54,10 +54,10 @@ class PostsController < ApplicationController
   private
   def post_params
     user_id = @user.id
-    params.require(:post).permit(:id, :main_image, :title, :description, :user_id, :address, :city)
+    params.require(:post).permit(:id, :main_image, :title, :description, :user_id, :address, :city, :postcode)
   end
 
   def full_address
-    [@post.address, @post.city].compact.join(', ')
+    [@post.address, @post.city, @post.postcode].compact.join(', ')
   end
 end

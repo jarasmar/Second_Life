@@ -5,9 +5,10 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.text :description
       t.string :city
       t.string :address
+      t.string :postcode
       t.float :latitude
       t.float :longitude
-      
+
       t.references :user
       t.timestamps
     end

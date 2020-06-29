@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_092023) do
     t.text "description"
     t.string "city"
     t.string "address"
+    t.string "postcode"
     t.float "latitude"
     t.float "longitude"
     t.bigint "user_id"

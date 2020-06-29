@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     # place = '#{@post.address}, #{@post.city}'
     location = Geocoder.search(full_address)
     @post.latitude = location.first.coordinates[0]
-    @post.latitude = location.first.coordinates[1]
+    @post.longitude = location.first.coordinates[1]
 
     if @post.save
       redirect_to '/'

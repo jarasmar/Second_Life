@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = User.find(params[:id] = @post.user_id)
+    @api_key = Rails.application.credentials.dig(:google, :google_api_key)
   end
 
   def find

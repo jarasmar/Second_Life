@@ -1,33 +1,38 @@
-<div class="card mb-3">
-
+<div class="row row-cols-1 row-cols-md-2">
   <% @posts.reverse.each do |post| %>
+    <div class="col mb-4">
 
-  <img class="card-img-top" <%= image_tag(post.main_image) if post.main_image.attached? %> </img>
-  <br>
+      <div class="card">
 
-  <div class="card-body">
-    <h3 class="card-title"><%= post.title %> </h3>
-    <p class="card-text"><%= post.description %> </p>
+        <img class="card-img-top" <%= image_tag(post.main_image) if post.main_image.attached? %> </img>
 
-    <p class="card-text"><small class="text-muted"> Post created by:
-      <% @user = User.find(params[:id] = post.user_id) %>
-      <%= link_to @user.username, user_path(@user.id), method: :get %>
-    </small></p>
+        <div class="card-body">
+          <h3 class="card-title"><%= post.title %> </h3>
+          <p class="card-text"><%= post.description %> </p>
 
-    <p class="card-text"><small class="text-muted"><%= post.city %>,  <%= post.postcode %>
-    </small></p>
-    <p class="card-text"><small class="text-muted"><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %>
-    </small></p>
-      <br>
+          <p class="card-text"><small class="text-muted"> Post created by:
+            <% @user = User.find(params[:id] = post.user_id) %>
+            <%= link_to @user.username, user_path(@user.id), method: :get %>
+          </small></p>
 
-    <p class="btn btn-link"><%= link_to 'Show', post_path(post), method: :get %></p>
+          <p class="card-text"><small class="text-muted"><%= post.city %>,  <%= post.postcode %>
+          </small></p>
+          <p class="card-text"><small class="text-muted"><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %>
+          </small></p>
 
-    <% if post.user_id === current_user.id %>
-    <p class="btn btn-link"><%= link_to 'Edit', edit_post_path(post), method: :get %></p>
+          <p class="btn btn-link"><%= link_to 'Show', post_path(post), method: :get %>
+          </p>
 
-    <p class="btn btn-link"><%= link_to 'Delete', post_path(post), :method => :delete, data: { confirm: "Are you sure?" }%> </p>
+          <% if post.user_id === current_user.id %>
+          <p class="btn btn-link"><%= link_to 'Edit', edit_post_path(post), method: :get %>
+          </p>
 
-    <% end %>
+          <p class="btn btn-link"><%= link_to 'Delete', post_path(post), :method => :delete, data: { confirm: "Are you sure?" }%>
+          </p>
+
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

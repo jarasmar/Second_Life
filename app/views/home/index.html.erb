@@ -12,19 +12,20 @@
     <p class="card-text"><small class="text-muted"> Post created by:
       <% @user = User.find(params[:id] = post.user_id) %>
       <%= link_to @user.username, user_path(@user.id), method: :get %>
-    </p>
+    </small></p>
 
-    <p class="card-text"><%= post.city %>,  <%= post.postcode %> </p>
-
-    <p class="card-text"><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %></p>
+    <p class="card-text"><small class="text-muted"><%= post.city %>,  <%= post.postcode %>
+    </small></p>
+    <p class="card-text"><small class="text-muted"><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %>
+    </small></p>
       <br>
 
-    <p class="btn btn-primary"><%= link_to 'Show', post_path(post), method: :get %></p>
+    <p class="btn btn-link"><%= link_to 'Show', post_path(post), method: :get %></p>
 
     <% if post.user_id === current_user.id %>
-    <p class="btn btn-primary"><%= link_to 'Edit', edit_post_path(post), method: :get %></p>
+    <p class="btn btn-link"><%= link_to 'Edit', edit_post_path(post), method: :get %></p>
 
-    <p class="btn btn-primary"><%= link_to 'Delete', post_path(post), :method => :delete, data: { confirm: "Are you sure?" }%> </p>
+    <p class="btn btn-link"><%= link_to 'Delete', post_path(post), :method => :delete, data: { confirm: "Are you sure?" }%> </p>
 
     <% end %>
     </div>

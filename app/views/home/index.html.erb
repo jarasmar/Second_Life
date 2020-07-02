@@ -1,17 +1,32 @@
-<% @posts.reverse.each do |post| %>
-  <img height=200 width=200 <%= image_tag(post.main_image) if post.main_image.attached? %> </img>
+<div class="card mb-3">
+
+  <% @posts.reverse.each do |post| %>
+
+  <img class="card-img-top" <%= image_tag(post.main_image) if post.main_image.attached? %> </img>
   <br>
-  <h3><%= post.title %> </h3>
-  <p><%= post.description %> </p>
-  <p> Post created by:
-    <% @user = User.find(params[:id] = post.user_id) %>
-    <%= link_to @user.username, user_path(@user.id), method: :get %>
-  </p>
-  <p><%= post.city %>,  <%= post.postcode %> </p>
-  <p><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %></p><br>
-  <p><%= link_to 'Show', post_path(post), method: :get %></p>
-  <% if post.user_id === current_user.id %>
-  <p><%= link_to 'Edit', edit_post_path(post), method: :get %></p>
-  <p><%= button_to 'Delete', post_path(post), :method => :delete, data: { confirm: "Are you sure?" }%> </p>
+
+  <div class="card-body">
+    <h3 class="card-title"><%= post.title %> </h3>
+    <p class="card-text"><%= post.description %> </p>
+
+    <p class="card-text"><small class="text-muted"> Post created by:
+      <% @user = User.find(params[:id] = post.user_id) %>
+      <%= link_to @user.username, user_path(@user.id), method: :get %>
+    </p>
+
+    <p class="card-text"><%= post.city %>,  <%= post.postcode %> </p>
+
+    <p class="card-text"><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %></p>
+      <br>
+
+    <p class="btn btn-primary"><%= link_to 'Show', post_path(post), method: :get %></p>
+
+    <% if post.user_id === current_user.id %>
+    <p class="btn btn-primary"><%= link_to 'Edit', edit_post_path(post), method: :get %></p>
+
+    <p class="btn btn-primary"><%= link_to 'Delete', post_path(post), :method => :delete, data: { confirm: "Are you sure?" }%> </p>
+
+    <% end %>
+    </div>
   <% end %>
-<% end %>
+</div>

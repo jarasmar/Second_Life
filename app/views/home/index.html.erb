@@ -10,27 +10,33 @@
           <h3 class="card-title"><%= post.title %> </h3>
           <p class="card-text"><%= post.description %> </p>
 
-          <p class="card-text"><small class="text-muted"> Post created by:
-            <% @user = User.find(params[:id] = post.user_id) %>
-            <%= link_to @user.username, user_path(@user.id), method: :get %>
-          </small></p>
+          <div class="card-footer">
+            <p class="card-text"><small class="text-muted"> 
+              Post created by:
+              <% @user = User.find(params[:id] = post.user_id) %>
+              <%= link_to @user.username, user_path(@user.id), method: :get %> &nbsp;|&nbsp;  <%= post.created_at.strftime('%d %B %Y, %I:%M%P ') %>
+            </small></p>
 
-          <p class="card-text"><small class="text-muted"><%= post.city %>,  <%= post.postcode %>
-          </small></p>
-          <p class="card-text"><small class="text-muted"><%= post.created_at.strftime('%d %B %Y | %I:%M%P ') %>
-          </small></p>
+            <p class="card-text"><small class="text-muted">
+              <%= post.city %>,  <%= post.postcode %>
+            </small></p>
+            
+            <p class="card-text"><small class="text-muted">
+              
+            </small></p>
 
-          <p class="btn btn-link"><%= link_to 'Show', post_path(post), method: :get %>
-          </p>
+            <p class="btn btn-link"><%= link_to 'Show', post_path(post), method: :get %>
+            </p>
 
-          <% if post.user_id === current_user.id %>
-          <p class="btn btn-link"><%= link_to 'Edit', edit_post_path(post), method: :get %>
-          </p>
+            <% if post.user_id === current_user.id %>
+            <p class="btn btn-link"><%= link_to 'Edit', edit_post_path(post), method: :get %>
+            </p>
 
-          <p class="btn btn-link"><%= link_to 'Delete', post_path(post), :method => :delete, data: { confirm: "Are you sure?" }%>
-          </p>
+            <p class="btn btn-link"><%= link_to 'Delete', post_path(post), :method => :delete, data: { confirm: "Are you sure?" }%>
+            </p>
 
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

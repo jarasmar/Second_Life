@@ -1,12 +1,3 @@
 @import './bootstrap_custom.scss';
 
-.card-img-top {
-  width: 100%;
-  height: 30rem;
-  object-fit: cover;
-}
-
-.card {
-  width: 30rem; 
-  margin: auto;
-}
+@import 'home';

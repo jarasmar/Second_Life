@@ -10,3 +10,20 @@
   margin: auto;
   object-fit: cover;
 }
+
+#card-body-main {
+  margin: auto;
+  text-align: center;
+}
+
+.card-mb-3 {
+  position: relative;
+}
+
+.icons {
+  text-align: right;
+  // margin-top: 18%;
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+}

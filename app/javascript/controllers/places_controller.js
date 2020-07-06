@@ -10,7 +10,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ 'field', 'map', 'city', 'postcode' ]
+  static targets = [ 'field', 'map', 'latitude', 'longitude' ]
 
   connect() {
     if (typeof(google) != "undefined") {
@@ -62,9 +62,9 @@ export default class extends Controller {
     this.marker.setPosition(place.geometry.location)
     this.marker.setVisible(true)
 
-    // autocomplete rest of form fields
-    this.cityTarget.value = place.geometry.location.lat()
-    this.postcodeTarget.value = place.geometry.location.lng()
+    // autocomplete hidden form fields with coordinates
+    this.latitudeTarget.value = place.geometry.location.lat()
+    this.longitudeTarget.value = place.geometry.location.lng()
   }
 
   // prevent sending form while selecting location with enter

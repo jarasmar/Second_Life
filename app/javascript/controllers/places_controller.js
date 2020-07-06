@@ -66,8 +66,7 @@ export default class extends Controller {
     this.latitudeTarget.value = place.geometry.location.lat()
     this.longitudeTarget.value = place.geometry.location.lng()
 
-    // Autocomplete postcode
-
+    // Autocomplete postcode/city fields
     let componentForm = {
       street_number: 'short_name',
       route: 'long_name',
@@ -76,15 +75,29 @@ export default class extends Controller {
       country: 'long_name',
       postal_code: 'short_name'
     }
-
+    console.log(place.address_components)
+    console.log(place.address_components[3].long_name)
+    
     for (let i = 0; i < place.address_components.length; i++) {
       let addressType = place.address_components[i].types[0];
       if (componentForm[addressType]) {
         let val = place.address_components[i][componentForm[addressType]];
-        // this.cityTarget.value = val;
         this.postcodeTarget.value = val;
+        
+        // Not very accurate, can get city or region depending on given input
+        this.cityTarget.value = place.address_components[3].long_name;
       }
     }
+
+    // Funciona para autocomplete postcode
+    // for (let i = 0; i < place.address_components.length; i++) {
+    //   let addressType = place.address_components[i].types[0];
+    //   if (componentForm[addressType]) {
+    //     let val = place.address_components[i][componentForm[addressType]];
+    //     // this.cityTarget.value = val;
+    //     this.postcodeTarget.value = val;
+    //   }
+    // }
   }
 
   // prevent sending form while selecting location with enter

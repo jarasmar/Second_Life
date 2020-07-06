@@ -19,10 +19,6 @@ class PostsController < ApplicationController
     @post = Post.create(post_params)
     @post.user_id = @user.id
 
-    location = Geocoder.search(full_address)
-    @post.latitude = location.first.coordinates[0]
-    @post.longitude = location.first.coordinates[1]
-
     if @post.save
       redirect_to '/'
     else
@@ -59,9 +55,5 @@ class PostsController < ApplicationController
   def post_params
     user_id = @user.id
     params.require(:post).permit(:id, :main_image, :title, :description, :user_id, :address, :city, :postcode)
-  end
-
-  def full_address
-    [@post.address, @post.city, @post.postcode].compact.join(', ')
   end
 end

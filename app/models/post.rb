@@ -12,14 +12,7 @@ class Post < ApplicationRecord
   # Adds default image if none attached
   after_commit :add_default_image, on: [:create, :update]
 
-  geocoded_by :full_address
-  after_validation :geocode, if: :address_changed?
-
   belongs_to :user
-
-  def full_address
-    [address, city, postcode].compact.join(', ')
-  end
 
   def acceptable_image
     return unless main_image.attached?

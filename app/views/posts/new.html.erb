@@ -24,10 +24,10 @@
   <%= f.search_field :address, data: { target: 'places.field', action: 'keydown->places#keydown' } %><br>
 
   <%= f.label :city %><br>
-  <%= f.text_field :city %><br>
+  <%= f.text_field :city, data: { target: 'places.city' } %><br>
 
   <%= f.label :postcode %><br>
-  <%= f.text_field :postcode %><br>
+  <%= f.text_field :postcode, data: { target: 'places.postcode' }%><br>
 
   <%= f.hidden_field :latitude, data: { target: 'places.latitude' } %><br>
   <%= f.hidden_field :longitude, data: { target: 'places.longitude' } %><br>

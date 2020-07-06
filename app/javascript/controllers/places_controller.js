@@ -10,7 +10,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ 'field', 'map', 'latitude', 'longitude' ]
+  static targets = [ 'field', 'map', 'latitude', 'longitude', 'city', 'postcode' ]
 
   connect() {
     if (typeof(google) != "undefined") {
@@ -65,6 +65,26 @@ export default class extends Controller {
     // autocomplete hidden form fields with coordinates
     this.latitudeTarget.value = place.geometry.location.lat()
     this.longitudeTarget.value = place.geometry.location.lng()
+
+    // Autocomplete postcode
+
+    let componentForm = {
+      street_number: 'short_name',
+      route: 'long_name',
+      locality: 'long_name',
+      administrative_area_level_2: 'long_name',
+      country: 'long_name',
+      postal_code: 'short_name'
+    }
+
+    for (let i = 0; i < place.address_components.length; i++) {
+      let addressType = place.address_components[i].types[0];
+      if (componentForm[addressType]) {
+        let val = place.address_components[i][componentForm[addressType]];
+        // this.cityTarget.value = val;
+        this.postcodeTarget.value = val;
+      }
+    }
   }
 
   // prevent sending form while selecting location with enter

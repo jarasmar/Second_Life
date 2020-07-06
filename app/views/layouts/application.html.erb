@@ -8,6 +8,8 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="http://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:google, :google_api_key) %>&libraries=places&callback=initMap" async defer data-turbolinks-eval="false"></script>
+
 
   </head>
 

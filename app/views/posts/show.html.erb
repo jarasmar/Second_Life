@@ -1,6 +1,6 @@
 
-<div class='card'>
-  <img class="card-img-top" <%= image_tag(@post.main_image) if @post.main_image.attached? %> </img>
+<div class='card' id="card-show-id">
+  <img class="card-img-top" id="card-show-img" <%= image_tag(@post.main_image) if @post.main_image.attached? %> </img>
   
   <div class="card-body" id="card-body-main">
     <h1 class="card-text"><%= @post.title %></h1>
@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class='card mb-3'>
+<div class='card mb-3' id="card-show-mb-3">
   <div class="row no-gutters">
     <div class="col-md-6">
       <img class='card-img' <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=800x400&center=#{@post.latitude},#{@post.longitude}&markers=color:red%7C#{@post.latitude},#{@post.longitude}&key=#{@api_key}", alt:'map' %> </img>

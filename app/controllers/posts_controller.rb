@@ -32,11 +32,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(params.require(:post).permit(:description, :main_image, :title, :address, :city, :postcode))
-
-    location = Geocoder.search(full_address)
-    @post.latitude = location.first.coordinates[0]
-    @post.longitude = location.first.coordinates[1]
+    @post.update(params.require(:post).permit(:description, :main_image, :title, :address, :city, :postcode, :latitude, :longitude))
 
     if @post.save
       redirect_to '/'

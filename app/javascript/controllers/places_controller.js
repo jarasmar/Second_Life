@@ -68,36 +68,25 @@ export default class extends Controller {
 
     // Autocomplete postcode/city fields
     let componentForm = {
-      street_number: 'short_name',
-      route: 'long_name',
       locality: 'long_name',
-      administrative_area_level_2: 'long_name',
-      country: 'long_name',
-      postal_code: 'short_name'
+      postal_town: 'long_name',
+      postal_code: 'short_name',
+      postal_code_prefix: 'short_name'
     }
-    console.log(place.address_components)
-    console.log(place.address_components[3].long_name)
     
+    // console.log(place.address_components)
+
     for (let i = 0; i < place.address_components.length; i++) {
       let addressType = place.address_components[i].types[0];
-      if (componentForm[addressType]) {
+      
+      if (addressType === 'postal_code' || addressType === 'postal_code_prefix')  {
         let val = place.address_components[i][componentForm[addressType]];
         this.postcodeTarget.value = val;
-        
-        // Not very accurate, can get city or region depending on given input
-        this.cityTarget.value = place.address_components[3].long_name;
-      }
+      } else if (addressType === 'postal_town' || addressType === 'locality') { 
+        let val = place.address_components[i][componentForm[addressType]];
+        this.cityTarget.value = val;
+      } 
     }
-
-    // Funciona para autocomplete postcode
-    // for (let i = 0; i < place.address_components.length; i++) {
-    //   let addressType = place.address_components[i].types[0];
-    //   if (componentForm[addressType]) {
-    //     let val = place.address_components[i][componentForm[addressType]];
-    //     // this.cityTarget.value = val;
-    //     this.postcodeTarget.value = val;
-    //   }
-    // }
   }
 
   // prevent sending form while selecting location with enter

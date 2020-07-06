@@ -66,4 +66,11 @@ export default class extends Controller {
     this.cityTarget.value = place.geometry.location.lat()
     this.postcodeTarget.value = place.geometry.location.lng()
   }
+
+  // prevent sending form while selecting location with enter
+  keydown(event) {
+    if (event.key == 'Enter') {
+      event.preventDefault()
+    }
+  }
 }

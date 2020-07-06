@@ -21,7 +21,7 @@
   <%= f.text_area :description %><br>
 
   <%= f.label :address %><br>
-  <%= f.search_field :address, data: { target: 'places.field' } %><br>
+  <%= f.search_field :address, data: { target: 'places.field', action: 'keydown->places#keydown' } %><br>
 
   <%= f.label :city %><br>
   <%= f.text_field :city, data: { target: 'places.city' } %><br>

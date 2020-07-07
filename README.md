@@ -43,37 +43,32 @@ An app based on Google Maps API where users can mark the exact location of any k
 - Weather advice when posting ('It's going to rain, better to wait until Thursday!')
 - Search bar for items by keywords
 - Adapt the web app into a mobile app (automatic location, access to the device camera)
+- Implement dark mode
 
 ## Resources:
 - Faceboook Group: https://www.facebook.com/groups/812378782152823/
 - Freecycle: https://www.freecycle.org/browse/UK
 
 ## How to run the app
-Clone or Download the repository
-Type in your terminal: 
+- Clone or Download the repository
 ```
-foreman start -f Procfile.dev
+$ git clone git@github.com:jarasmar/Second_Life.git
 ```
-Visit http://localhost:5000/
+- Install gems:
+```
+$ bundle install
+```
+- Set up the databases:
+```
+$ rails db:create
+$ rails db:migrate
+```
+- Start the server:
+```
+rails start
+```
+- Visit http://localhost:5000/
 
 ## Heroku App
 https://second-life-app.herokuapp.com/
 
-<!-- 
-Things to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions -->

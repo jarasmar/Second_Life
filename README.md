@@ -41,7 +41,7 @@ Clone or Download the repository
 ```
 $ git clone git@github.com:jarasmar/Second_Life.git
 ```
-Install gems:
+Install all dependencies:
 ```
 $ bundle install
 ```
@@ -52,7 +52,7 @@ $ rails db:migrate
 ```
 Start the server:
 ```
-rails start
+$ rails start
 ```
 Visit http://localhost:5000/
 

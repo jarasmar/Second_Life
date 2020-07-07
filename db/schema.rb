@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2020_05_27_092023) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "city"
     t.string "address"
+    t.string "city"
     t.string "postcode"
     t.float "latitude"
     t.float "longitude"

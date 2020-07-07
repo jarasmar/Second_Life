@@ -12,7 +12,7 @@
 
 <h1> Edit Post </h1>
 
-<%= form_for :post do |f|%>
+<%= form_with(model: [@post], local: true, data: { controller: 'places', action: 'google-maps-callback@window->places#initMap', places_latitude: @post.latitude, places_longitude: @post.longitude }) do |f|%>
 
   <%= f.label :title %><br>
   <%= f.text_field :title %><br>
@@ -21,17 +21,22 @@
   <%= f.text_area :description %><br>
 
   <%= f.label :address %><br>
-  <%= f.text_field :address %><br>
+  <%= f.search_field :address, data: { target: 'places.field', action: 'keydown->places#keydown' } %><br>
 
   <%= f.label :city %><br>
-  <%= f.text_field :city %><br>
+  <%= f.text_field :city, data: { target: 'places.city' } %><br>
 
   <%= f.label :postcode %><br>
-  <%= f.text_field :postcode %><br>
+  <%= f.text_field :postcode, data: { target: 'places.postcode' } %><br>
+
+  <%= f.hidden_field :latitude, data: { target: 'places.latitude' } %><br>
+  <%= f.hidden_field :longitude, data: { target: 'places.longitude' } %><br>
 
   <%= f.label :main_image %><br>
   <%= f.file_field :main_image %><br>
 
   <%= f.submit %>
-
+  <div>
+      <div data-target='places.map' style='height: 400px'></div>
+  </div>
 <%end%>

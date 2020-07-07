@@ -14,29 +14,19 @@ An app based on Google Maps API where users can mark the exact location of any k
 >client = user collecting an item that has been posted
 
 ### Two Main Views
-- **Main View:** Grid of posted items (image, title, begining of description, post code, see more) - Filter by (nearby, newest, tag) - Change to Map View
-- **Map View:** Map with pins (on click: image, title, begining of description, see more) - Filter by (nearby, newest, tag) - Change to List View
+- **Main View:** Grid of posted items (image, title, begining of description, location, links) - Filter by (nearby, newest, tag) - Change to Map View
+- **Map View:** Map with pins (on click: image, title, begining of description, location, links) - Filter by (nearby, newest, tag) - Change to List View
 
 ### Posts
-- **Post Page:** picture, title, description, checklist (list of objects available), date and time, tags, map.
-- **Availability:** client can mark items in the checklist if collected (1 point for owner) - owner can mark items as gone in the checklist too.
+- **Post Page:** picture, title, description, location, checklist (list of objects available), date and time, tags, map.
+- **Availability:** client can mark items in the checklist if collected (1 point for owner) - owner can mark items as gone in the checklist too. Display the last time a post was updated.
 
 ### Users
 - **Registration:** username, email, password, profile picture.
 - **User Page:** profile information - profile rating (1 point everytime a client marks one of your items as collected) - my posted items - post new item
 
 ### Tags
-- Furniture
-- Clothing
-- Kitchen
-- Garden
-- Sports/Games
-- Electronics
-- Family
-- Books/Music/Films
-- Pet Supplies
-- Reform Supplies
-- Other (default)
+Furniture - Clothing - Kitchen - Garden - Sports/Games - Electronics - Family - Books/Music/Films - Pet Supplies - Reform Supplies - Other (default)
 
 ### Extra Features
 - Customized alerts for new posted items (tag, keywords, location...)
@@ -45,29 +35,26 @@ An app based on Google Maps API where users can mark the exact location of any k
 - Adapt the web app into a mobile app (automatic location, access to the device camera)
 - Implement dark mode
 
-## Resources:
-- Faceboook Group: https://www.facebook.com/groups/812378782152823/
-- Freecycle: https://www.freecycle.org/browse/UK
-
 ## How to run the app
-- Clone or Download the repository
+
+Clone or Download the repository
 ```
 $ git clone git@github.com:jarasmar/Second_Life.git
 ```
-- Install gems:
+Install gems:
 ```
 $ bundle install
 ```
-- Set up the databases:
+Set up the databases:
 ```
 $ rails db:create
 $ rails db:migrate
 ```
-- Start the server:
+Start the server:
 ```
 rails start
 ```
-- Visit http://localhost:5000/
+Visit http://localhost:5000/
 
 ## Heroku App
 https://second-life-app.herokuapp.com/

@@ -19,10 +19,12 @@ export default class extends Controller {
   }
 
   initMap() {
+    // Get coordinates from input or set default to central London
+    this.LatLng = new google.maps.LatLng(this.data.get('latitude') || 51.50, this.data.get('longitude') || -0.11)
     // initialize google map (preview)
     this.map = new google.maps.Map(this.mapTarget, {
-      center: new google.maps.LatLng(51.5074, 0.1278),
-      zoom: 10
+      center: this.LatLng,
+      zoom: (this.data.get('latitude') == null ? 10 : 17)
     })
     // initialize google places js (address autocomplete)
     this.autocomplete = new google.maps.places.Autocomplete(this.fieldTarget)
@@ -36,7 +38,7 @@ export default class extends Controller {
     // Create a default marker
     this.marker = new google.maps.Marker({
       map: this.map,
-      anchorPoint: new google.maps.Point(0, 29)
+      position: this.LatLng
     })
   }
 
@@ -74,17 +76,17 @@ export default class extends Controller {
       postal_code_prefix: 'short_name'
     }
     
-    // console.log(place.address_components)
+    console.log(place.address_components)
 
     for (let i = 0; i < place.address_components.length; i++) {
       let addressType = place.address_components[i].types[0];
       
       if (addressType === 'postal_code' || addressType === 'postal_code_prefix')  {
-        let val = place.address_components[i][componentForm[addressType]];
-        this.postcodeTarget.value = val;
+        let value = place.address_components[i][componentForm[addressType]];
+        this.postcodeTarget.value = value;
       } else if (addressType === 'postal_town' || addressType === 'locality') { 
-        let val = place.address_components[i][componentForm[addressType]];
-        this.cityTarget.value = val;
+        let value = place.address_components[i][componentForm[addressType]];
+        this.cityTarget.value = value;
       } 
     }
   }

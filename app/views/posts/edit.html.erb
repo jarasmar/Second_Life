@@ -12,7 +12,7 @@
 
 <h1> Edit Post </h1>
 
-<%= form_with(model: [@post], local: true, data: { controller: 'places', action: 'google-maps-callback@window->places#initMap' }) do |f|%>
+<%= form_with(model: [@post], local: true, data: { controller: 'places', action: 'google-maps-callback@window->places#initMap', places_latitude: @post.latitude, places_longitude: @post.longitude }) do |f|%>
 
   <%= f.label :title %><br>
   <%= f.text_field :title %><br>

@@ -15,7 +15,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" <%= link_to 'View Profile', user_path(current_user.id), method: :get %></a>
-          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" <%= link_to 'Settings', edit_user_path(current_user.id), method: :get %></a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" <%= link_to 'Sign Out', logout_path, method: :delete %></a>
         </div>

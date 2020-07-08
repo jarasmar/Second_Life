@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(params.require(:user).permit(:username, :email, :password, :profile_image))
+    @user = User.create(user_params)
     session[:user_id] = @user.id
 
     if @user.save
@@ -16,8 +16,27 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @post = Post.find(params[:id])
     @user = User.find(params[:id])
     @user_posts = Post.where(user_id: @user.id)
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(params.require(:user).permit(:username, :email, :password, :profile_image))
+
+    if @user.save
+      redirect_to 'user_path'
+    else
+      render 'edit'
+    end
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:id, :username, :email, :password, :profile_image)
   end
 end

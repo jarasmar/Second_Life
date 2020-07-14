@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   has_one_attached :main_image
+  has_many :items
 
   validate :acceptable_image
 

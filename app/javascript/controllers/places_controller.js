@@ -1,6 +1,6 @@
-// Visit The Stimulus Handbook for more details 
+// Visit The Stimulus Handbook for more details
 // https://stimulusjs.org/handbook/introduction
-// 
+//
 // This example controller works with specially annotated HTML like:
 //
 // <div data-controller="hello">
@@ -75,19 +75,19 @@ export default class extends Controller {
       postal_code: 'short_name',
       postal_code_prefix: 'short_name'
     }
-    
+
     console.log(place.address_components)
 
     for (let i = 0; i < place.address_components.length; i++) {
       let addressType = place.address_components[i].types[0];
-      
+
       if (addressType === 'postal_code' || addressType === 'postal_code_prefix')  {
         let value = place.address_components[i][componentForm[addressType]];
         this.postcodeTarget.value = value;
-      } else if (addressType === 'postal_town' || addressType === 'locality') { 
+      } else if (addressType === 'postal_town' || addressType === 'locality') {
         let value = place.address_components[i][componentForm[addressType]];
         this.cityTarget.value = value;
-      } 
+      }
     }
   }
 

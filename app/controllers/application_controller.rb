@@ -13,6 +13,26 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
 
+  def moon 
+    cookies[:moon] = {
+      value: 'dark mode on'
+    }
+    if @logged_in
+      redirect current_path
+    else
+      redirect_to '/welcome'
+    end
+  end
+
+  def sun
+    cookies.delete(:moon)
+    if @logged_in
+      redirect_to '/'
+    else
+      redirect_to '/welcome'
+    end
+  end
+
   private
   
   def require_login

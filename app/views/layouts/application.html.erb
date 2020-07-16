@@ -6,6 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <% if cookies[:moon] %>
+    <%= stylesheet_link_tag 'application_dark', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% else %>
+    <%= javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
@@ -29,6 +35,10 @@
     <% end %>
 
     <%= yield %>
-    
+    <% if cookies[:moon] %>
+<%= button_to 'Light Mode', sun_path, method: :get%>
+<% else %>
+<%= button_to 'Dark Mode', moon_path, method: :get%>
+<% end %>
   </body>
 </html>

@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   # get 'post/:id', to: 'posts#find'
   resources :posts
   root 'home#index'
+  get '/moon', to: 'application#moon', as: 'moon'
+  get '/sun', to: 'application#sun', as: 'sun'
 end

@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_092023) do
     t.string "postcode"
     t.float "latitude"
     t.float "longitude"
+    t.string "items"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

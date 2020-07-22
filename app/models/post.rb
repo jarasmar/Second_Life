@@ -32,5 +32,4 @@ class Post < ApplicationRecord
       self.main_image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default_main_image.png")), filename: 'default_main_image.png' , content_type: "image/png")
     end
   end
-
 end

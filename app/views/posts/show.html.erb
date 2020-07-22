@@ -1,10 +1,18 @@
 
 <div class='card' id="card-show-id">
   <img class="card-img-top" id="card-show-img" <%= image_tag(@post.main_image) if @post.main_image.attached? %> </img>
-  
+
   <div class="card-body" id="card-body-main">
     <h1 class="card-text"><%= @post.title %></h1>
     <p class="card-text"><%= @post.description %></p>
+    <p >Items available:   </p>
+      <ul class="card-text">
+        <% @post.items.split(", ").each do |item| %>
+          <li>
+            <div><%= item %></div>
+          </li>
+        <%end %>
+      </ul>
   </div>
 </div>
 
@@ -20,7 +28,7 @@
           Post created by:   <%= link_to @user.username, user_path(@user.id), method: :get %> </p>
         <p>
         <p class="card-text">
-          <%= @post.address %>, <%= @post.city %>,  <%= @post.postcode %> 
+          <%= @post.address %>, <%= @post.city %>,  <%= @post.postcode %>
         </p>
         <p class="card-text">
           <%= @post.created_at.strftime('%d %B %Y | %I:%M%P ') %>

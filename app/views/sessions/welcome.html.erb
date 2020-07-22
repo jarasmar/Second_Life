@@ -7,8 +7,12 @@
                 Jeans from last season are no longer in fashion, and that lamp no longer matches your new cushion. 
                 And it is so easy to replace them... 
                 Unfortunately our planet does not have unlimited resources, our landfills are full and those objects that you do not want deserve a 'Second Life'"</p>
-                <%= button_to "login", '/login', method: :get%>
-                <%= button_to "Sign Up", '/profile/new', method: :get%>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="btnLogin"><%= button_to "Login", '/login', method: :get%></div>
+                            <div id="btnSignUp"><%= button_to "Sign Up", '/profile/new', method: :get%></div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

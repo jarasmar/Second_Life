@@ -8,3 +8,22 @@
     display: inline-block;
     vertical-align: top;
 }
+
+#welcome-container {
+    position:relative;
+    width:100%;   
+}
+
+#translucent {
+    background-image: url("../images/welcome_pic.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.2;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#welcome-card {
+    position: relative;
+}

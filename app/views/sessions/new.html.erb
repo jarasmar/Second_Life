@@ -1,15 +1,30 @@
-<h1>Log In </h1>
+<div class="d-flex p-5 justify-content-center align-items-center" id="welcome-container">
+    <div class="d-flex p-5" id="translucent"></div>
+    <div class="card" id="welcome-card">
+        <div class="card-header" id="welcome-image"></div>
+            <div class="card-body">
+                <h1 class= "card-text">Log In</h1>
+                  <p class="card-text"><%= form_tag '/login' do %>
 
-<%= form_tag '/login' do %>
+                  <%= label_tag :username %>
 
-  <%= label_tag :username %>
+                  <%= text_field_tag :username %><br>
 
-  <%= text_field_tag :username %>
+                  <%= label_tag :password %>
 
-  <%= label_tag :password %>
+                  <%= password_field_tag :password %><br>
 
-  <%= password_field_tag :password %>
+                  <%= button_tag(id: "btnLogIn", type: 'submit', class: "btn btn-dark") do %> Login <% end %>
 
-  <%= submit_tag "Login"%>
-
-<%end%>
+                <%end%>
+              </p><br>
+                <p class="card-text"><strong> Want to join our community?</strong></p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="btnSignUp"><button type="button" class="btn btn-dark"><%= link_to "Sign Up", '/profile/new', method: :get%></button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,26 +10,44 @@
   </div>
 <% end %>
 
-<h1>Sign Up</h1>
+<div class="d-flex p-5 justify-content-center align-items-center" id="welcome-container">
+    <div class="d-flex p-5" id="translucent"></div>
+    <div class="card" id="welcome-card">
+        <div class="card-header" id="welcome-image"></div>
+            <div class="card-body">
+                <h1 class= "card-text">Sign Up</h1>
+                  <p class="card-text">
 
-<%= form_for @user do |f|%>
+                    <%= form_for @user do |f|%>
 
-  <%= f.label :username%><br>
+                    <%= f.text_field :username, placeholder: "Username"%><br><br>
 
-  <%= f.text_field :username%><br>
+                    <%= f.text_field :email, placeholder: "Email"%><br><br>
 
-  <%= f.label :email%><br>
+                    <%= f.password_field :password, placeholder: "Password"%><br><br>
 
-  <%= f.text_field :email%><br>
+                    <label class="btn btn-light">
+                      Upload Profile Image
+                      <span style="display:none;">
+                        <%= f.file_field :profile_image %>
+                        </span>
+                        </label>
+                    <br>
+                    <br>
 
-  <%= f.label :password%><br>
+                    <%= button_tag(id: "btnSignUp", type: 'submit', class: "btn btn-dark") do %> Create User <% end %>
 
-  <%= f.password_field :password%><br>
-
-  <%= f.label :profile_image %>
-
-  <%= f.file_field :profile_image %>
-
-  <%= f.submit %>
-
-<%end%>
+                  <%end%>
+              </p><br>
+              <div class="card-footer">
+                <p class="card-text"><strong> Already part of the community?</strong></p>
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <div id="btnLogIn"><button type="button" class="btn btn-dark"><%= link_to "Login", '/login', method: :get%></button></div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

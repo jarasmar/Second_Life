@@ -4,25 +4,25 @@
         <div class="card-header" id="welcome-image"></div>
             <div class="card-body">
                 <h1 class= "card-text">Log In</h1>
-                  <p class="card-text"><%= form_tag '/login' do %>
+                <p class="card-text">
 
-                  <%= label_tag :username %>
+                  <%= form_tag '/login' do %>
 
-                  <%= text_field_tag :username %><br>
+                  <%= text_field_tag :username, nil, placeholder: "Username" %><br><br>
 
-                  <%= label_tag :password %>
-
-                  <%= password_field_tag :password %><br>
+                  <%= password_field_tag :password, nil, placeholder: "Password" %><br><br>
 
                   <%= button_tag(id: "btnLogIn", type: 'submit', class: "btn btn-dark") do %> Login <% end %>
 
-                <%end%>
-              </p><br>
+                  <%end%>
+                </p><br>
+              <div class="card-footer">
                 <p class="card-text"><strong> Want to join our community?</strong></p>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div id="btnSignUp"><button type="button" class="btn btn-dark"><%= link_to "Sign Up", '/profile/new', method: :get%></button></div>
-                    </div>
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <div id="btnSignUp"><button type="button" class="btn btn-dark"><%= link_to "Sign Up", '/profile/new', method: :get%></button></div>
+                      </div>
+                  </div>
                 </div>
             </div>
         </div>

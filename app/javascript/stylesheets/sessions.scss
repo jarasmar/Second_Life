@@ -29,7 +29,7 @@
 
 // Button section
 #btnLogIn,
-#btnSignUp {    
+#btnSignUp {
     display: inline-block;
     vertical-align: top;
 }
@@ -46,4 +46,8 @@ a {
 a:hover {
     text-decoration: none;
     color: white;
+}
+
+.btn-light {
+  border: 1px solid black;
 }

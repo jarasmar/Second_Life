@@ -12,6 +12,7 @@
 <br><br>
 <div class="card" id="new-post-card">
         <div class="card-body">
+        <br>
             <h1 class= "card-text">New Post</h1>
               <p class="card-text">
                 <%= form_with(model: [@post], local: true, data: { controller: 'places', action: 'google-maps-callback@window->places#initMap' }) do |f|%>
@@ -42,6 +43,7 @@
                   <div>
                       <div data-target='places.map' style='height: 400px'></div>
                   </div>
+                  <br>
                 <%end%>
 
 

@@ -9,37 +9,44 @@
     </ul>
   </div>
 <% end %>
+<br><br>
+<div class="card" id="new-post-card">
+  <div class="card-body">
+  <br>
+    <h1 class="card-text"> Edit Post </h1>
+      <p class="card-text">
 
-<h1> Edit Post </h1>
+        <%= form_with(model: [@post], local: true, data: { controller: 'places', action: 'google-maps-callback@window->places#initMap', places_latitude: @post.latitude, places_longitude: @post.longitude }) do |f|%>
 
-<%= form_with(model: [@post], local: true, data: { controller: 'places', action: 'google-maps-callback@window->places#initMap', places_latitude: @post.latitude, places_longitude: @post.longitude }) do |f|%>
+          <%= f.text_field :title, class: "new-input", placeholder: "Title" %><br><br>
 
-  <%= f.label :title %><br>
-  <%= f.text_field :title %><br>
+          <%= f.text_area :description, class: "new-input", placeholder: "Description" %><br><br>
 
-  <%= f.label :description %><br>
-  <%= f.text_area :description %><br>
+          <%= f.text_field :items, class: "new-input", placeholder: 'Add items separated with a comma' %><br><br>
 
-  <%= f.label :items %><br>
-  <%= f.text_field :items, placeholder: 'Add items separated with a comma' %><br>
+          <%= f.search_field :address, class: "new-input", placeholder: "Address", data: { target: 'places.field', action: 'keydown->places#keydown' } %><br><br>
 
-  <%= f.label :address %><br>
-  <%= f.search_field :address, data: { target: 'places.field', action: 'keydown->places#keydown' } %><br>
+          <%= f.text_field :city, class: "new-input", placeholder: "City", data: { target: 'places.city' } %><br><br>
 
-  <%= f.label :city %><br>
-  <%= f.text_field :city, data: { target: 'places.city' } %><br>
+          <%= f.text_field :postcode, class: "new-input", placeholder: "Postcode", data: { target: 'places.postcode' } %><br><br>
 
-  <%= f.label :postcode %><br>
-  <%= f.text_field :postcode, data: { target: 'places.postcode' } %><br>
+          <%= f.hidden_field :latitude, data: { target: 'places.latitude' } %>
+          <%= f.hidden_field :longitude, data: { target: 'places.longitude' } %>
 
-  <%= f.hidden_field :latitude, data: { target: 'places.latitude' } %><br>
-  <%= f.hidden_field :longitude, data: { target: 'places.longitude' } %><br>
-
-  <%= f.label :main_image %><br>
-  <%= f.file_field :main_image %><br>
-
-  <%= f.submit %>
+          <label class="btn btn-light btn-block">
+            Upload Picture
+              <span style="display:none;">
+              <%= f.file_field :main_image %>
+              </span>
+          </label>
+          <br><br>
+            <%= button_tag(type: 'submit', class: "btn btn-dark") do %> Update Post <% end %> <br><br>
+        </p>
   <div>
-      <div data-target='places.map' style='height: 400px'></div>
+      <div data-target='places.map' style='height: 400px'></div> 
+  </div> 
+  <br>
+  <%end%>
   </div>
-<%end%>
+</div>
+<br><br>

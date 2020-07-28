@@ -39,13 +39,22 @@
     border: none;
 }
 
-a {
+.home-btn {
     color: white;
+}
+
+.home-btn:hover {
+    text-decoration: none;
+    color: white;
+}
+
+a {
+    color: grey;
 }
 
 a:hover {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .btn-light {

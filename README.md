@@ -2,6 +2,10 @@
 
 Our society moves at a dizzying pace. New technologies and the concept of fast fashion cause us to get rid of our belongings more and more often. Jeans from last season are no longer in fashion, and that lamp no longer matches your new cushion. And it is so easy to replace them... Unfortunately our planet does not have unlimited resources, our landfills are full and those objects that you do not want deserve a “Second Life”.
 
+## App Demo in Heroku
+https://second-life-app.herokuapp.com/
+
+
 #### Key Words
 Upcycle - Environment - Recycle - Community - Second Hand - Share - Neighbourhood - Creativity - DIY
 

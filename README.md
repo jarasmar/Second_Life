@@ -5,10 +5,6 @@ Our society moves at a dizzying pace. New technologies and the concept of fast f
 ## App Demo in Heroku
 https://second-life-app.herokuapp.com/
 
-
-#### Key Words
-Upcycle - Environment - Recycle - Community - Second Hand - Share - Neighbourhood - Creativity - DIY
-
 ## How does it work?
 An app based on Google Maps API where users can mark the exact location of any kind of goods left on the street for other people to collect or for the rubbish collection service to take away if the item has been left there for too long. Posts can be made by the previous owner (the person leaving the goods for other to take) or by any other user that sees goods on the street (just need to take a picture and post it with the location).
 

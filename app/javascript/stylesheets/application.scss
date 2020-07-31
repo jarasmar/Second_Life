@@ -3,3 +3,19 @@
 @import 'home';
 @import 'posts';
 @import 'users';
+@import 'sessions';
+
+#container {
+  position: absolute;
+  width: 100%;
+}
+
+#transparent-background {
+  background-image: url("../images/white-bronze.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}

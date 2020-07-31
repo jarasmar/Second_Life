@@ -1,51 +1,54 @@
-<div class="row row-cols-1 row-cols-md-2">
-  <% @posts.reverse.each do |post| %>
-    <div class="col mb-4">
+<div id="container">
+  <div class="d-flex p-5" id="transparent-background"></div>
+  <br><br>
+  <div class="row row-cols-1 row-cols-md-2">
+    <% @posts.reverse.each do |post| %>
+      <div class="col mb-4">
 
-      <div class="card">
-        <a href=<%= post_path(post)%>>
-          <img class="card-img-top" <%= image_tag(post.main_image) if post.main_image.attached? %> </img>
-        </a>
-
-      
-        <div class="card-body">
+        <div class="card" id="index-card">
           <a href=<%= post_path(post)%>>
-            <h3 class="card-title"><%= post.title %> </h3>
+            <img class="card-img-top" <%= image_tag(post.main_image) if post.main_image.attached? %> </img>
           </a>
-          <p class="card-text"><%= post.description.truncate(50) %> </p>
+          
+          <div class="card-body">
+            <a href=<%= post_path(post)%>>
+              <h3 class="card-title"><%= post.title %> </h3>
+            </a>
+            <p class="card-text"><%= post.description.truncate(50) %> </p>
 
-          <div class="card-footer">
-            <p class="card-text"><small class="text-muted"> 
-              Post created by:
-              <% @user = User.find(params[:id] = post.user_id) %>
-              <%= link_to @user.username, user_path(@user.id), method: :get %> &nbsp;|&nbsp;  <%= post.created_at.strftime('%d %B %Y, %I:%M%P ') %>
-            </small></p>
+            <div class="card-footer">
+              <p class="card-text"><small class="text-muted"> 
+                Post created by:
+                <% @user = User.find(params[:id] = post.user_id) %>
+                <%= link_to @user.username, user_path(@user.id), method: :get %> &nbsp;|&nbsp;  <%= post.created_at.strftime('%d %B %Y, %I:%M%P ') %>
+              </small></p>
 
-            <p class="card-text"><small class="text-muted">
-              <%= post.city %>,  <%= post.postcode %>
-              </small>
-               
-              <% if post.user_id === current_user.id %>
-                <span>
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                  <a href=<%= edit_post_path(post)%>>
-                    <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                    </svg>
-                  </a>
-                  &nbsp;
-                  <%= link_to post_path(post), data: {confirm: 'Are you sure?'}, method: :delete do %>
-                    <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
-                    </svg>
-                  <% end %>
-                </span>
-              <% end %>
-            </p>
+              <p class="card-text"><small class="text-muted">
+                <%= post.city %>,  <%= post.postcode %>
+                </small>
+                
+                <% if post.user_id === current_user.id %>
+                  <span>
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <a href=<%= edit_post_path(post)%>>
+                      <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                      </svg>
+                    </a>
+                    &nbsp;
+                    <%= link_to post_path(post), data: {confirm: 'Are you sure?'}, method: :delete do %>
+                      <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                      </svg>
+                    <% end %>
+                  </span>
+                <% end %>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

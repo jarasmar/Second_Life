@@ -1,7 +1,14 @@
-#card-show-id {
-  width: 50rem; 
+// Show Post page
+#shadow {
+  position: relative;
+  width: 50rem;
+  box-shadow: 0px 0px 44px 0px rgba(0,0,0,0.75);
   margin: auto;
-  // border: none;
+}
+
+#card-show-id {
+  width: 50rem;
+  margin: auto;
 }
 
 #card-show-img {
@@ -11,20 +18,50 @@
   object-fit: cover;
 }
 
+#card-show-mb-3 {
+  position: relative;
+  width: 50rem;
+  margin: auto;
+}
+
 #card-body-main {
   margin: auto;
   text-align: center;
 }
 
-#card-show-mb-3 {
-  position: relative;
-  width: 50rem;
+// Create new Post Page
+#new-post-card {
+    position: relative;
+    box-shadow: 0px 0px 44px 0px rgba(0,0,0,0.75);
+    text-align: center;
+    width: 60%;
+    margin: auto;
 }
 
 .icons {
-  text-align: right;
-  // margin-top: 18%;
-  position: absolute;
-  bottom: 0px;
-  right: 5px;
+    text-align: right;
+    // margin-top: 18%;
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+}
+
+.new-input {
+  width: 50%;
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+
+.btn-block {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.show-link {
+  color:black;
+}
+
+.show-link:hover {
+  color :grey;
 }

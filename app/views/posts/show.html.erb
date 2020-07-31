@@ -1,56 +1,62 @@
+<div id="container">
+  <div class="d-flex p-5" id="transparent-background"></div>
+  <br><br>
+  <div id="shadow">
+    <div class='card' id="card-show-id">
+      <img class="card-img-top" id="card-show-img" <%= image_tag(@post.main_image) if @post.main_image.attached? %> </img>
 
-<div class='card' id="card-show-id">
-  <img class="card-img-top" id="card-show-img" <%= image_tag(@post.main_image) if @post.main_image.attached? %> </img>
-
-  <div class="card-body" id="card-body-main">
-    <h1 class="card-text"><%= @post.title %></h1>
-    <p class="card-text"><%= @post.description %></p>
-    <p >Items available:   </p>
-      <ul class="card-text">
-        <% @post.items.split(", ").each do |item| %>
-          <li>
-            <div><%= item %></div>
-          </li>
-        <%end %>
-      </ul>
-  </div>
-</div>
-
-<div class='card mb-3' id="card-show-mb-3">
-  <div class="row no-gutters">
-    <div class="col-md-6">
-      <img class='card-img' <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=800x400&center=#{@post.latitude},#{@post.longitude}&markers=color:red%7C#{@post.latitude},#{@post.longitude}&key=#{@api_key}", alt:'map' %> </img>
+      <div class="card-body" id="card-body-main">
+        <h1 class="card-text"><%= @post.title %></h1>
+        <p class="card-text"><%= @post.description %></p>
+        <p >Items available:   </p>
+          <ul class="card-text">
+            <% @post.items.split(", ").each do |item| %>
+              <li>
+                <div><%= item %></div>
+              </li>
+            <%end %>
+          </ul>
+      </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="card-body">
-        <p class="card-text">
-          Post created by:   <%= link_to @user.username, user_path(@user.id), method: :get %> </p>
-        <p>
-        <p class="card-text">
-          <%= @post.address %>, <%= @post.city %>,  <%= @post.postcode %>
-        </p>
-        <p class="card-text">
-          <%= @post.created_at.strftime('%d %B %Y | %I:%M%P ') %>
-        </p>
+    <div class='card mb-3' id="card-show-mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <img class='card-img' <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=800x400&center=#{@post.latitude},#{@post.longitude}&markers=color:red%7C#{@post.latitude},#{@post.longitude}&key=#{@api_key}", alt:'map' %> </img>
+        </div>
 
-        <% if @post.user_id === current_user.id %>
-          <p class='icons'>
-            <a href=<%= edit_post_path(@post)%>>
-              <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-              </svg>
-            </a>
-            &nbsp;
-            <%= link_to post_path(@post), data: {confirm: 'Are you sure?'}, method: :delete do %>
-              <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
-              </svg>
+        <div class="col-md-6">
+          <div class="card-body">
+            <p class="card-text">
+              Post created by:   <%= link_to @user.username, user_path(@user.id), method: :get, class:"show-link" %> </p>
+            <p>
+            <p class="card-text">
+              <%= @post.address %>, <%= @post.city %>,  <%= @post.postcode %>
+            </p>
+            <p class="card-text">
+              <%= @post.created_at.strftime('%d %B %Y | %I:%M%P ') %>
+            </p>
+
+            <% if @post.user_id === current_user.id %>
+              <p class='icons'>
+                <a class="show-link" href=<%= edit_post_path(@post)%>>
+                  <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                  </svg>
+                </a>
+                &nbsp;
+                <%= link_to post_path(@post), data: {confirm: 'Are you sure?'}, method: :delete, class:"show-link" do %>
+                  <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                  </svg>
+                <% end %>
+              </p>
             <% end %>
-          </p>
-        <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<br><br>

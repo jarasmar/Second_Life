@@ -1,0 +1,69 @@
+// Background
+#welcome-container {
+    position:relative;
+    width:100%;
+    height: 100vh;
+}
+
+// Transparent image in the background
+#translucent {
+    background-image: url("../images/market.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.4;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+
+// Main Card
+#welcome-card {
+    position: relative;
+    box-shadow: 0px 0px 44px 0px rgba(0,0,0,0.75);
+    text-align: center;
+    width: 30rem;
+}
+
+// Card image header
+#welcome-image {
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 10rem;
+}
+
+// Button section
+#btnLogIn,
+#btnSignUp {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.btn-dark:hover {
+    background-color: #707070;
+    border: none;
+}
+
+.home-btn {
+    color: white;
+}
+
+.home-btn:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-light {
+    border: 1px solid black;
+}
+
+a {
+    color: grey;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+

@@ -1,7 +1,19 @@
+// Show Post page
+#container {
+  position: absolute;
+  width: 100%;
+}
+
+#shadow {
+  position: relative;
+  width: 50rem;
+  box-shadow: 0px 0px 44px 0px rgba(0,0,0,0.75);
+  margin: auto;
+}
+
 #card-show-id {
   width: 50rem;
   margin: auto;
-  // border: none;
 }
 
 #card-show-img {
@@ -11,16 +23,18 @@
   object-fit: cover;
 }
 
+#card-show-mb-3 {
+  position: relative;
+  width: 50rem;
+  margin: auto;
+}
+
 #card-body-main {
   margin: auto;
   text-align: center;
 }
 
-#card-show-mb-3 {
-  position: relative;
-  width: 50rem;
-}
-
+// Create new Post Page
 #new-post-card {
     position: relative;
     box-shadow: 0px 0px 44px 0px rgba(0,0,0,0.75);

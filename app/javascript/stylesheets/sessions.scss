@@ -5,6 +5,7 @@
     height: 100vh;
 }
 
+// Transparent image in the background
 #translucent {
     background-image: url("../images/welcome_pic.jpg");
     background-repeat: no-repeat;
@@ -15,13 +16,14 @@
     position: absolute;
 }
 
-// Card
+// Main Card
 #welcome-card {
     position: relative;
     box-shadow: 0px 0px 44px 0px rgba(0,0,0,0.75);
     text-align: center;
 }
 
+// Card image header
 #welcome-image {
     background-image: url("../images/welcome_pic.jpg");
     height: 10rem;
@@ -48,6 +50,10 @@
     color: white;
 }
 
+.btn-light {
+    border: 1px solid black;
+}
+
 a {
     color: grey;
 }
@@ -57,6 +63,4 @@ a:hover {
     color: black;
 }
 
-.btn-light {
-  border: 1px solid black;
-}
+

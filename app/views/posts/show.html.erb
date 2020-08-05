@@ -22,7 +22,7 @@
     <div class='card mb-3' id="card-show-mb-3">
       <div class="row no-gutters">
         <div class="col-md-6">
-          <img class='card-img' <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=800x400&center=#{@post.latitude},#{@post.longitude}&markers=color:red%7C#{@post.latitude},#{@post.longitude}&key=#{@api_key}", alt:'map' %> </img>
+          <div id='map'></div>
         </div>
 
         <div class="col-md-6">
@@ -60,3 +60,13 @@
   </div>
 </div>
 <br><br>
+
+
+<script>
+  function initMap() {
+    var myLocation = {lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+    var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 17, center: myLocation});
+    var marker = new google.maps.Marker({position: myLocation, map: map});
+  }
+</script>

@@ -2,19 +2,19 @@
 <html>
   <head>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Second Life</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
     <script src='https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:google, :google_api_key) %>&libraries=places&callback=initMap' async defer data-turbolinks-eval='false'></script>
   </head>
 
   <body>
-    
+
     <nav>
       <% if current_user %>
         <%= render "layouts/user_nav" %>
@@ -28,6 +28,6 @@
     <% end %>
 
     <%= yield %>
-    
+
   </body>
 </html>

@@ -61,12 +61,26 @@
 </div>
 <br><br>
 
-
 <script>
   function initMap() {
     var myLocation = {lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
     var map = new google.maps.Map(
       document.getElementById('map'), {zoom: 17, center: myLocation});
     var marker = new google.maps.Marker({position: myLocation, map: map});
+
+    console.log('Map is ready');
+
   }
+  function WhenMapLoadedDo(mapstuff)
+    {
+    if(typeof google != 'undefined')
+      mapstuff();
+    else
+        setTimeout(function()
+        {(function(mapstuff)
+          {
+            WhenMapLoadedDo(mapstuff)
+          })(mapstuff)}, 500);
+    }
+    WhenMapLoadedDo(initMap);
 </script>

@@ -6,12 +6,10 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   get 'posts', to: 'posts#show'
-  # get 'posts/new', to: 'posts#new'
-  # post 'posts', to: 'posts#create'
   delete 'posts/:id', to: 'posts#destroy'
-  # get 'posts/:id/edit', to: 'posts#edit'
   post 'posts/:id/edit', to: 'posts#update'
-  # get 'post/:id', to: 'posts#find'
+
   resources :posts
+  get 'map', to: 'home#map'
   root 'home#index'
 end

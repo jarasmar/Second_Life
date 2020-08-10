@@ -20,9 +20,17 @@
 }
 
 // Style for Map View
-
-.map-view-container {
-  height: 100vh;
+.map-view-background {
+  background-color: #E5DCBE;
+  height: 92vh;
   width: 100%;
   position: relative;
+}
+
+.map-view-container {
+  height: 80%;
+  width: 80%;
+  position: relative;
+  margin: auto;
+  padding-top: 5%;
 }

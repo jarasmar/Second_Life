@@ -20,17 +20,27 @@
 }
 
 // Style for Map View
+.main-map-view-container {
+  position: absolute;
+  width: 100%;
+}
+
 .map-view-background {
-  background-color: #E5DCBE;
+  // background-color: #E5DCBE;
+  background-image: url("../images/white-bronze.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  opacity: 0.4;
   height: 92vh;
   width: 100%;
-  position: relative;
+  position: absolute;
 }
 
 .map-view-container {
-  height: 80%;
+  height: 76vh;
   width: 80%;
   position: relative;
   margin: auto;
-  padding-top: 5%;
+  padding-top: 8vh;
+  // box-shadow: 0px 0px 44px 0px rgba(0,0,0,0.75);
 }

@@ -22,11 +22,24 @@
   position: relative;
   width: 50rem;
   margin: auto;
+  // height: 15rem;
 }
 
 #card-body-main {
   margin: auto;
   text-align: center;
+}
+
+#map-show-container {
+  height: 15rem;
+  width: 100%; 
+  position: relative;
+}
+
+#map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 // Create new Post Page
@@ -64,9 +77,4 @@
 
 .show-link:hover {
   color :grey;
-}
-
-#map {
-  height: 250px;
-  width: 100%; 
 }

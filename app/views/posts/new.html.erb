@@ -1,17 +1,22 @@
-<% if @post.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@post.errors.count, "error") %> prohibited post from being saved:</h2>
-
-    <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <div id="container">
-  <div class="d-flex p-5" id="transparent-background"></div>
+    <div class="d-flex p-5" id="transparent-background"></div>
+    <% if @post.errors.any? %>
+      <div class="alert alert-danger alert dismissible fade show" role="alert" id="error_explanation">
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+
+        <h4><%= pluralize(@post.errors.count, "error") %> prohibited post from being saved:</h4>
+
+        <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
   <br><br>
   <div class="card" id="new-post-card">
     <div class="card-body">
@@ -31,7 +36,7 @@
           <%= f.text_field :city, class: "new-input", placeholder: "City", data: { target: 'places.city' } %><br><br>
 
           <%= f.text_field :postcode, class: "new-input", placeholder: "Post Code", data: { target: 'places.postcode' } %><br><br>
-  
+
           <%= f.hidden_field :latitude, data: { target: 'places.latitude' } %>
           <%= f.hidden_field :longitude, data: { target: 'places.longitude' } %>
           <label class="btn btn-light btn-block">

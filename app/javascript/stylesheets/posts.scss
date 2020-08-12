@@ -33,7 +33,7 @@
 
 #map-show-container {
   height: 15rem;
-  width: 100%; 
+  width: 100%;
   position: relative;
 }
 
@@ -41,6 +41,19 @@
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.card {
+  overflow: hidden;
+}
+
+.card-text {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.badge-secondary {
+  padding: 7px;
 }
 
 // Create new Post Page

@@ -8,14 +8,16 @@
       <div class="card-body" id="card-body-main">
         <h1 class="card-text"><%= @post.title %></h1>
         <p class="card-text"><%= @post.description %></p>
-        <p >Items available:   </p>
+        <div id="item-list">
+          <h5>Items available:   </h5>
           <ul class="card-text">
             <% @post.items.split(", ").each do |item| %>
-              <li>
-                <div><%= item %></div>
-              </li>
+              <span class="badge badge-secondary">
+                <%= item.capitalize %>
+              </span> &nbsp
             <%end %>
           </ul>
+        </div>
       </div>
     </div>
 

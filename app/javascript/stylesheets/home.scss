@@ -6,7 +6,7 @@
 }
 
 #index-card {
-  width: 30rem; 
+  width: 30rem;
   margin: auto;
   box-shadow: 0px 0px 44px 0px rgba(0,0,0,0.75);
 }
@@ -43,4 +43,8 @@
   margin: auto;
   padding-top: 100px;
   // box-shadow: 0px 0px 44px 0px rgba(0,0,0,0.75);
+}
+
+.info-window-content {
+  column-count: 2;
 }

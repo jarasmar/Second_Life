@@ -11,7 +11,7 @@ function initMap() {
 // Fetch info from db and push it into an array
   var markers = []
   <% @posts.each do |p| %>
-    markers.push({lat: <%= p.latitude %>, lng: <%= p.longitude %>, info: '<div class="info_content">' + '<h3><%= p.title %></h3>' + '<p><%= p.description %></p>' + '<p><a href="<%= post_path(p)%>"> See More</a></p>' + '</div>'})
+    markers.push({lat: <%= p.latitude %>, lng: <%= p.longitude %>, info: '<div class="info-window-content">' + '<div class="info-window-image">' + '<img height="150" width="150"<%= image_tag(p.main_image)%></img>' + '</div>' + '<div class="info-window-text">' + '<h3><%= p.title %></h3>' + '<p><%= p.description.truncate(30) %></p>' + '<p><a href="<%= post_path(p)%>"> See More</a></p>' + '</div></div>'})
   <% end %>
 
   var myLocation = {lat: 51.50, lng: -0.11}

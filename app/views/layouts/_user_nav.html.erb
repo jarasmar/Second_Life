@@ -9,14 +9,20 @@
       <li class="nav-item">
         <a class="nav-link" href="/posts/new">New Post</a>
       </li>
+      <li class="nav-item">
+
+        <% if params[:action] == "index" && params[:controller] == "home" %>
+          <a class="nav-link" <%= link_to 'Map View', map_path, method: :get %></a>
+        <% elsif params[:action] == "map" && params[:controller] == "home" %>
+          <a class="nav-link" <%= link_to 'List View', root_path, method: :get %></a>
+        <% end %>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= current_user.username %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" <%= link_to 'View Profile', user_path(current_user.id), method: :get %></a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" <%= link_to 'View Map', map_path, method: :get %></a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" <%= link_to 'Sign Out', logout_path, method: :delete %></a>
         </div>

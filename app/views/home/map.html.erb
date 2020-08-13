@@ -41,4 +41,16 @@ function initMap() {
     })(marker, i));
   }
 }
+function WhenMapLoadedDo(mapstuff)
+    {
+    if(typeof google != 'undefined')
+      mapstuff();
+    else
+        setTimeout(function()
+        {(function(mapstuff)
+          {
+            WhenMapLoadedDo(mapstuff)
+          })(mapstuff)}, 500);
+    }
+    WhenMapLoadedDo(initMap);
 </script>

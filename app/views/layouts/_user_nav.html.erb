@@ -4,18 +4,10 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="/posts/new">New Post</a>
-      </li>
-      <li class="nav-item">
-
-        <% if params[:action] == "index" && params[:controller] == "home" %>
-          <a class="nav-link" <%= link_to 'Map View', map_path, method: :get %></a>
-        <% elsif params[:action] == "map" && params[:controller] == "home" %>
-          <a class="nav-link" <%= link_to 'List View', root_path, method: :get %></a>
-        <% end %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,5 +20,12 @@
         </div>
       </li>
     </ul>
+    <div class="nav-item">
+      <% if params[:action] == "index" && params[:controller] == "home" %>
+        <button class="btn btn-dark" id='map-switch'><a id='map-switch-text' <%= link_to 'Map View', map_path, method: :get %></a></button>
+      <% elsif params[:action] == "map" && params[:controller] == "home" %>
+        <button class="btn btn-dark" id='list-switch'><a id='list-switch-text' <%= link_to 'List View', root_path, method: :get %></a></button>
+      <% end %>
+    </div>
   </div>
 </nav>

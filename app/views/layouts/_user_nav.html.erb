@@ -1,10 +1,10 @@
-<nav class="navbar static-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">Second Life</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="/posts/new">New Post</a>
@@ -16,11 +16,16 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" <%= link_to 'View Profile', user_path(current_user.id), method: :get %></a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" <%= link_to 'View Map', map_path, method: :get %></a>
-          <div class="dropdown-divider"></div>
           <a class="dropdown-item" <%= link_to 'Sign Out', logout_path, method: :delete %></a>
         </div>
       </li>
     </ul>
+    <div class="nav-item">
+      <% if params[:action] == "index" && params[:controller] == "home" %>
+        <button class="btn btn-dark" id='map-switch'><a id='map-switch-text' <%= link_to 'Map View', map_path, method: :get %></a></button>
+      <% elsif params[:action] == "map" && params[:controller] == "home" %>
+        <button class="btn btn-dark" id='list-switch'><a id='list-switch-text' <%= link_to 'List View', root_path, method: :get %></a></button>
+      <% end %>
+    </div>
   </div>
 </nav>

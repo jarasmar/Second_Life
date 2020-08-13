@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   has_one_attached :main_image
+  before_save :capitalize_fields
 
   validate :acceptable_image
 
@@ -32,4 +33,10 @@ class Post < ApplicationRecord
       self.main_image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default_main_image.png")), filename: 'default_main_image.png' , content_type: "image/png")
     end
   end
+
+  def capitalize_fields
+    self.title.capitalize!
+    self.description.capitalize!
+  end
+
 end

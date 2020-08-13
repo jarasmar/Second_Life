@@ -8,21 +8,25 @@
       <div class="card-body" id="card-body-main">
         <h1 class="card-text"><%= @post.title %></h1>
         <p class="card-text"><%= @post.description %></p>
-        <p >Items available:   </p>
+        <div id="item-list">
+          <h5>Items available:   </h5>
           <ul class="card-text">
             <% @post.items.split(", ").each do |item| %>
-              <li>
-                <div><%= item %></div>
-              </li>
+              <span class="badge badge-secondary">
+                <%= item.capitalize %>
+              </span> &nbsp
             <%end %>
           </ul>
+        </div>
       </div>
     </div>
 
     <div class='card mb-3' id="card-show-mb-3">
       <div class="row no-gutters">
         <div class="col-md-6">
-          <div id='map'></div>
+          <div class='map-show-container'>
+            <div id='map'></div>
+          </div>
         </div>
 
         <div class="col-md-6">

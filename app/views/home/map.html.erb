@@ -1,18 +1,23 @@
-<div id='map'></div>
+<div class='main-map-view-container'>
+  <div class='map-view-background'></div>
+  <div class='map-view-container'>
+    <div id='map'></div>
+  </div>
+</div>
 
 
 <script>
 function initMap() {
-   var markers = []
-     <% @posts.each do |p| %>
-       markers.push({lat: <%= p.latitude %>, lng: <%= p.longitude %>, info: '<div class="info_content">' + '<h3><%= p.title %></h3>' + '<p><%= p.description %></p>' + '<p><a href="<%= post_path(p)%>"> See More</a></p>' + '</div>'})
-     <% end %>
+// Fetch info from db and push it into an array
+  var markers = []
+  <% @posts.each do |p| %>
+    markers.push({lat: <%= p.latitude %>, lng: <%= p.longitude %>, info: '<div class="info-window-content">' + '<div class="info-window-image">' + '<img height="150" width="150"<%= image_tag(p.main_image)%></img>' + '</div>' + '<div class="info-window-text">' + '<h3><%= p.title %></h3>' + '<p><%= p.description.truncate(30) %></p>' + '<p><a href="<%= post_path(p)%>"> See More</a></p>' + '</div></div>'})
+  <% end %>
 
-    var myLocation = {lat: 51.50, lng: -0.11}
-    var map = new google.maps.Map(
+  var myLocation = {lat: 51.50, lng: -0.11}
+  var map = new google.maps.Map(
     document.getElementById('map'), {zoom: 7, center: myLocation});
 
-  console.log(markers)
 // Display multiple markers on a map
 
   var infoWindow = new google.maps.InfoWindow(), marker, i;
@@ -20,20 +25,32 @@ function initMap() {
 // Loop through our array of markers & place each one on the map
 
   for(i = 0; i < markers.length; i++ ) {
-      var position = new google.maps.LatLng(markers[i].lat, markers[i].lng);
-      marker = new google.maps.Marker({
-          position: position,
-          map: map
-      });
-      // Allow each marker to have an info window
+    var position = new google.maps.LatLng(markers[i].lat, markers[i].lng);
+    marker = new google.maps.Marker({
+      position: position,
+      map: map
+    });
+// Allow each marker to have an info window
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infoWindow.setContent(markers[i].info);
-          infoWindow.open(map, marker);
-        }
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        infoWindow.setContent(markers[i].info);
+        infoWindow.open(map, marker);
+      }
 
-      })(marker, i));
+    })(marker, i));
   }
 }
+function WhenMapLoadedDo(mapstuff)
+    {
+    if(typeof google != 'undefined')
+      mapstuff();
+    else
+        setTimeout(function()
+        {(function(mapstuff)
+          {
+            WhenMapLoadedDo(mapstuff)
+          })(mapstuff)}, 500);
+    }
+    WhenMapLoadedDo(initMap);
 </script>

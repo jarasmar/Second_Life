@@ -16,17 +16,44 @@
   height: 30rem;
   margin: auto;
   object-fit: cover;
+  padding: 10px;
 }
 
 #card-show-mb-3 {
   position: relative;
   width: 50rem;
   margin: auto;
+  // height: 15rem;
 }
 
 #card-body-main {
   margin: auto;
   text-align: center;
+}
+
+#map-show-container {
+  height: 15rem;
+  width: 100%;
+  position: relative;
+}
+
+#map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  overflow: hidden;
+}
+
+.card-text {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.badge-secondary {
+  padding: 7px;
 }
 
 // Create new Post Page
@@ -64,9 +91,4 @@
 
 .show-link:hover {
   color :grey;
-}
-
-#map {
-  height: 250px;
-  width: 100%; 
 }

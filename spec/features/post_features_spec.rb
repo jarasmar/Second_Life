@@ -12,30 +12,30 @@ RSpec.feature "post features", type: :feature do
     attach_file('test_photos/Test.jpg')
     click_button "Create Post"
     expect(page).to have_content "Post created by: User1"
-    expect(page).to have_content "A Picture of my Nan"
+    expect(page).to have_content "A picture of my nan"
   end
 
   scenario "A user can view their post" do
     create_user_and_sign_up_1
     make_a_post
-    click_link "A Picture of my Nan"
-    expect(page).to have_content "A Picture of my Nan"
+    click_link "A picture of my nan"
+    expect(page).to have_content "A picture of my nan"
   end
 
   scenario "A user can edit their post" do
     create_user_and_sign_up_1
     make_a_post
-    find(:css, "svg.bi-pencil-square").click
-    fill_in("Title", with: "Wait a minute...")
-    click_button "Save Post"
+    page.find(:css, "#EditBtn").click
+    fill_in 'post_title', with: 'Wait a minute...'
+    click_button "Update Post"
     expect(page).to have_content "Wait a minute..."
   end
 
   scenario "A user can delete their post" do
     create_user_and_sign_up_1
     make_a_post
-    find(:css, "svg.bi-trash-fill").click
-    expect(page).not_to have_content "A Picture of my Nan"
+    page.find(:css, "#DeleteBtn").click
+    expect(page).not_to have_content "A picture of my nan"
   end
 
   scenario "A user cannot delete/edit another users post" do
@@ -43,7 +43,7 @@ RSpec.feature "post features", type: :feature do
     make_a_post
     click_link "Sign Out"
     create_user_and_sign_up_2
-    expect(page).to have_content "A Picture of my Nan"
+    expect(page).to have_content "A picture of my nan"
     expect(page).not_to have_content "Delete"
     expect(page).not_to have_content "Edit"
   end

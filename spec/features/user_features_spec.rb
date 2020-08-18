@@ -4,7 +4,7 @@ require 'sign_up_helper'
 RSpec.feature "User features", type: :feature do
   scenario "user can sign up" do
     visit '/welcome'
-    click_button 'Sign Up'
+    click_link 'Sign Up'
     fill_in("Username", with: "User1")
     fill_in("Email", with: "user1@user.com")
     fill_in("Password", with: "password")
@@ -31,8 +31,8 @@ RSpec.feature "User features", type: :feature do
 
   scenario "a user can't log in if they haven't signed up" do
     visit '/welcome'
-    click_button 'login'
-    fill_in("Username", with: "User1")
+    click_link 'Login'
+    fill_in :placeholder => 'Username', :with => 'User1'
     fill_in("Password", with: "password")
     expect(page).to have_content "Log In"
   end

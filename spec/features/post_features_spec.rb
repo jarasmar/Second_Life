@@ -31,6 +31,15 @@ RSpec.feature "post features", type: :feature do
     expect(page).to have_content "Wait a minute..."
   end
 
+  scenario "A user is redirected to edit if edit post is incorrect" do
+    create_user_and_sign_up_1
+    make_a_post
+    page.find(:css, "#EditBtn").click
+    fill_in 'post_title', with: 'abc'
+    click_button "Update Post"
+    expect(page).to have_content "Title has to be more than 5 characters"
+  end
+
   scenario "A user can delete their post" do
     create_user_and_sign_up_1
     make_a_post
@@ -44,8 +53,8 @@ RSpec.feature "post features", type: :feature do
     click_link "Sign Out"
     create_user_and_sign_up_2
     expect(page).to have_content "A picture of my nan"
-    expect(page).not_to have_content "Delete"
-    expect(page).not_to have_content "Edit"
+    expect(page).to have_no_css("#DeleteBtn")
+    expect(page).to have_no_css("#EditBtn")
   end
 
   scenario "can't upload a post with a description of less than 25 characters" do
@@ -80,5 +89,11 @@ RSpec.feature "post features", type: :feature do
     click_button "Create Post"
     expect(page).to have_content "Main image has to be less than 4MB"
     expect(page).to have_content "Main image must be a JPEG or PNG"
+  end
+
+  scenario "A post is given a default image when no image is uploaded" do
+    create_user_and_sign_up_1
+    make_a_post_no_photo
+    expect(page).to have_css("img[src*='default_main_image.png']")
   end
 end

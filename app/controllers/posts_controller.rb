@@ -6,9 +6,9 @@ class PostsController < ApplicationController
     @api_key = Rails.application.credentials.dig(:google, :google_api_key)
   end
 
-  def find
-    @post = Post.find_by(params[:id])
-  end
+  # def find
+  #   @post = Post.find_by(params[:id])
+  # end
 
   def new
      @post = Post.new

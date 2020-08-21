@@ -7,7 +7,13 @@
 
         <div class="card" id="index-card">
           <a href=<%= post_path(post)%>>
-            <img class="card-img-top" <%= image_tag(post.main_image) if post.main_image.attached? %> </img>
+              <% if post.main_image.attached? %>
+                <% post.main_image.each do |image| %>
+                  <img class="card-img-top" 
+                  <%= image_tag(image) %>
+                  </img>
+                <% end %>
+              <% end %>
           </a>
 
           <div class="card-body">

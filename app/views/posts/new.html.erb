@@ -42,9 +42,15 @@
           <label class="btn btn-light btn-block">
             Upload Picture
             <span style="display:none;">
-              <%= f.file_field :main_image %>
+              <%= f.file_field :main_image, multiple: true %>
             </span>
           </label>
+          <label class="btn btn-light btn-block">
+          Upload Picture
+          <span style="display:none;">
+            <%= f.file_field :main_image, multiple: true %>
+          </span>
+        </label>
           <br><br>
           <%= button_tag(type: 'submit', class: "btn btn-dark") do %> Create Post <% end %> <br><br>
 

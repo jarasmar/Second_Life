@@ -39,18 +39,17 @@
 
           <%= f.hidden_field :latitude, data: { target: 'places.latitude' } %>
           <%= f.hidden_field :longitude, data: { target: 'places.longitude' } %>
+          <div class="images">
+          <div class="pic">
+            add photos
+          </div>
+        </div>  
           <label class="btn btn-light btn-block">
             Upload Picture
             <span style="display:none;">
               <%= f.file_field :main_image, multiple: true %>
             </span>
           </label>
-          <label class="btn btn-light btn-block">
-          Upload Picture
-          <span style="display:none;">
-            <%= f.file_field :main_image, multiple: true %>
-          </span>
-        </label>
           <br><br>
           <%= button_tag(type: 'submit', class: "btn btn-dark") do %> Create Post <% end %> <br><br>
 
@@ -64,3 +63,38 @@
   </div>
 <br><br>
 </div>
+<script>
+(function ($) {
+  $(document).ready(function () {
+
+    uploadImage()
+
+    function uploadImage() {
+      var button = $('.images .pic')
+      var uploader = $('<input type="file" accept="image/*" />')
+      var images = $('.images')  
+      var photos = []
+      
+      button.on('click', function () {
+        uploader.click()
+      })
+      
+      uploader.on('change', function () {
+          var reader = new FileReader()
+          reader.onload = function(event) {
+            images.prepend('<div class="img" style="background-image: url(\'' + event.target.result + '\');" rel="'+ event.target.result  +'"><span>remove</span></div>')
+          }
+          reader.readAsDataURL(uploader[0].files[0])
+          photos.push(uploader[0].files[0])
+          console.log(photos)
+       })
+      
+      images.on('click', '.img', function () {
+        $(this).remove()
+      })
+
+    }
+  })
+})(jQuery)
+</script>
+

@@ -23,7 +23,7 @@
     <br>
       <h1 class= "card-text">New Post</h1>
       <p class="card-text">
-        <%= form_with(model: [@post], local: true, data: { controller: 'places', action: 'google-maps-callback@window->places#initMap' }) do |f|%>
+        <%= form_with(model: [@post], local: true, multipart: true, data: { controller: 'places', action: 'google-maps-callback@window->places#initMap' }) do |f|%>
 
           <%= f.text_field :title, class: "new-input", placeholder: "Title" %><br><br>
 
@@ -39,12 +39,20 @@
 
           <%= f.hidden_field :latitude, data: { target: 'places.latitude' } %>
           <%= f.hidden_field :longitude, data: { target: 'places.longitude' } %>
-          <label class="btn btn-light btn-block">
-            Upload Picture
-            <span style="display:none;">
-              <%= f.file_field :main_image %>
-            </span>
-          </label>
+
+          <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-max-file-size="4" data-dropzone-max-files="5">
+            <%= f.file_field :main_image, direct_upload: true, data: { target: "dropzone.input" } %>
+            <div class="dropzone-msg dz-message needsclick text-gray-600">
+              <h3 class="dropzone-msg-title">Drag here to upload or click here to browse</h3>
+              <span class="dropzone-msg-desc text-sm">4 MB file size maximum. Allowed file types png,
+              jpg.</span>
+            </div>
+          </div>
+
+
+
+
+
           <br><br>
           <%= button_tag(type: 'submit', class: "btn btn-dark") do %> Create Post <% end %> <br><br>
 

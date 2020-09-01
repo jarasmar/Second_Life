@@ -36,7 +36,7 @@ export default class extends Controller {
       file.controller && removeElement(file.controller.hiddenInput);
     });
 
-    this.dropZone.on("canceled", file => {
+    this.dropZone.on("cancelled", file => {
       file.controller && file.controller.xhr.abort();
     });
   }

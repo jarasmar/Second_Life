@@ -1,5 +1,8 @@
 @import './bootstrap_custom.scss';
 
+@import "dropzone/dist/min/dropzone.min.css";
+@import "dropzone/dist/min/basic.min.css";
+
 @import 'home';
 @import 'posts';
 @import 'users';

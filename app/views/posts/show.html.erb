@@ -3,8 +3,17 @@
   <br><br>
   <div id="shadow">
     <div class='card' id="card-show-id">
-      <img class="card-img-top" id="card-show-img" <%= image_tag(@post.main_image) if @post.main_image.attached? %> </img>
 
+      <% puts '******************'%>
+      <% puts @post.main_image %>
+      
+      <img class="card-img-top" id="card-show-img"<% if @post.main_image.attached? %>
+      
+        <% @post.main_image.each do |img| %>
+          <%= image_tag(img)%>
+        <% end %>
+      <% end %></img>
+      
       <div class="card-body" id="card-body-main">
         <h1 class="card-text"><%= @post.title %></h1>
         <p class="card-text"><%= @post.description %></p>

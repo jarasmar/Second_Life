@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(params.require(:post).permit(:description, :main_image, :title, :address, :city, :postcode, :latitude, :longitude, :items))
+    @post.update(params.require(:post).permit(:description, :title, :address, :city, :postcode, :latitude, :longitude, :items, main_image: []))
 
     if @post.save
       redirect_to '/'

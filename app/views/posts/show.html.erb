@@ -3,16 +3,31 @@
   <br><br>
   <div id="shadow">
     <div class='card' id="card-show-id">
-
-      <% puts '******************'%>
-      <% puts @post.main_image %>
+      <% if @post.main_image.attached? %>
       
-      <img class="card-img-top" id="card-show-img"<% if @post.main_image.attached? %>
-      
-        <% @post.main_image.each do |img| %>
-          <%= image_tag(img)%>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <% @post.main_image.each.with_index do |image, i| %>
+            <li data-target="#myCarousel" data-slide-to="<%= i %>" class="<%= 'active' if i == 0 %>"></li>
+          <% end %>
+        </ol>
+      <div class="carousel-inner">
+        <% @post.main_image.each.with_index do |image, i| %>
+          <div class="item <%= 'active' if i == 0 %>">
+            <%= image_tag(image) %>
+          </div>           
         <% end %>
-      <% end %></img>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+      <% end %>
       
       <div class="card-body" id="card-body-main">
         <h1 class="card-text"><%= @post.title %></h1>

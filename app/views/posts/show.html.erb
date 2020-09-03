@@ -32,6 +32,7 @@
       <div class="card-body" id="card-body-main">
         <h1 class="card-text"><%= @post.title %></h1>
         <p class="card-text"><%= @post.description %></p>
+        <% if @post.items != "" %>
         <div id="item-list">
           <h5>Items available:   </h5>
           <ul class="card-text">
@@ -39,9 +40,11 @@
               <span class="badge badge-secondary">
                 <%= item.capitalize %>
               </span> &nbsp
-            <%end %>
+            <% end %>
           </ul>
         </div>
+        <% end %>
+        <br>
       </div>
     </div>
 

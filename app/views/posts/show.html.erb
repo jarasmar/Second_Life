@@ -4,7 +4,7 @@
   <div id="shadow">
     <div class='card' id="card-show-id">
       <% if @post.main_image.attached? %>
-      
+
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <% @post.main_image.each.with_index do |image, i| %>
@@ -13,9 +13,9 @@
         </ol>
       <div class="carousel-inner">
         <% @post.main_image.each.with_index do |image, i| %>
-          <div class="item <%= 'active' if i == 0 %>">
+          <div class="carousel-item <%= 'active' if i == 0 %>">
             <%= image_tag(image) %>
-          </div>           
+          </div>
         <% end %>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -28,7 +28,7 @@
       </a>
     </div>
       <% end %>
-      
+
       <div class="card-body" id="card-body-main">
         <h1 class="card-text"><%= @post.title %></h1>
         <p class="card-text"><%= @post.description %></p>

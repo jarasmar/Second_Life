@@ -11,12 +11,21 @@
   margin: auto;
 }
 
-#card-show-img {
+#carouselExampleIndicators {
   width: 49rem;
-  height: 30rem;
   margin: auto;
   object-fit: cover;
   padding: 10px;
+}
+
+// carousel image height
+.carousel-item {
+height: 35rem;
+overflow: hidden;
+width: 100%;
+}
+.carousel-item img {
+width: 100%;
 }
 
 #card-show-mb-3 {

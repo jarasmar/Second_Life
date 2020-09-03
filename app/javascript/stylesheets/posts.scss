@@ -47,7 +47,7 @@
   position: relative;
   width: 50rem;
   margin: auto;
-  // height: 15rem;
+  height: 15rem;
 }
 
 #card-body-main {
@@ -64,13 +64,17 @@
 #map {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 15rem;
 }
 
 .card {
   overflow: hidden;
 }
 
+#info-show-container {
+  height: 15rem;
+  width: 100%;
+}
 .card-text {
   overflow-wrap: break-word;
   word-break: break-word;
@@ -91,10 +95,9 @@
 
 .icons {
     text-align: right;
-    // margin-top: 18%;
     position: absolute;
     bottom: 0px;
-    right: 5px;
+    margin-right: 10px;
 }
 
 .new-input {

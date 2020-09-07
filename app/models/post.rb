@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   has_many_attached :main_image
+
   before_save :capitalize_fields
 
   validate :acceptable_image

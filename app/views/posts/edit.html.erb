@@ -39,7 +39,16 @@
 
             <%= f.hidden_field :latitude, data: { target: 'places.latitude' } %>
             <%= f.hidden_field :longitude, data: { target: 'places.longitude' } %>
-
+            <% if @post.main_image.attached? %>
+              <div class="saved-images-box">
+                <% @post.main_image.each do |image| %>
+                  <div class="saved-image-container">
+                    <img class="saved-image" <%= image_tag(image) %> </img>
+                    <p class="remove-link">Remove file</p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
             <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-files="5">
             <%= f.file_field :main_image, multiple: true, direct_upload: true, data: { target: "dropzone.input" } %>
             <div class="dropzone-msg dz-message needsclick text-gray-600">
@@ -48,7 +57,7 @@
               jpg.</span>
             </div>
           </div>
-          
+
             <br><br>
               <%= button_tag(type: 'submit', class: "btn btn-dark") do %> Update Post <% end %> <br><br>
           </p>

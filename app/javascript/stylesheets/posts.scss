@@ -124,3 +124,21 @@
   border: .5px solid grey;
   border-radius: 2px;
 }
+
+// Edit post
+
+.saved-images-box {
+  display: flex;
+  justify-content: center;
+}
+
+.saved-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  margin: 6px;
+}
+
+.remove-link {
+  color: grey;
+}

@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   delete 'posts/:id', to: 'posts#destroy'
   post 'posts/:id/edit', to: 'posts#update'
 
-  resources :posts
+  resources :posts do
+    member do
+      delete 'delete_image/:upload_id', action: :delete_image, as: :delete_image
+    end
+  end
+
   get 'map', to: 'home#map'
   root 'home#index'
 end

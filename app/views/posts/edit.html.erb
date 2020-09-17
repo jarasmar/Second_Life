@@ -44,7 +44,9 @@
                 <% @post.main_image.each do |image| %>
                   <div class="saved-image-container">
                     <img class="saved-image" <%= image_tag(image) %> </img>
-                    <p class="remove-link">Remove file</p>
+                    <p class="remove-link"><%= link_to delete_image_post_url(@post, image.id), method: :delete do %>
+                      Remove file
+                    <% end %><p>
                   </div>
                 <% end %>
               </div>

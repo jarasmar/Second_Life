@@ -32,7 +32,13 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(params.require(:post).permit(:description, :main_image, :title, :address, :city, :postcode, :latitude, :longitude, :items))
+    @post.update(params.require(:post).permit(:description, :title, :address, :city, :postcode, :latitude, :longitude, :items))
+
+    if params[:post][:main_image].present?
+      params[:post][:main_image].each do |image|
+        @post.main_image.attach(image)
+      end
+    end
 
     if @post.save
       redirect_to '/'
@@ -47,9 +53,15 @@ class PostsController < ApplicationController
     redirect_to '/'
   end
 
+  def delete_image
+    attachment = ActiveStorage::Attachment.find(params[:upload_id])
+    attachment.purge
+    redirect_back(fallback_location: posts_path)
+  end
+
   private
   def post_params
     user_id = @user.id
-    params.require(:post).permit(:id, :main_image, :title, :description, :user_id, :address, :city, :postcode, :latitude, :longitude, :items)
+    params.require(:post).permit(:id, :title, :description, :user_id, :address, :city, :postcode, :latitude, :longitude, :items, main_image: [])
   end
 end

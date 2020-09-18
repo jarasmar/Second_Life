@@ -11,19 +11,43 @@
   margin: auto;
 }
 
-#card-show-img {
+#carouselExampleIndicators {
   width: 49rem;
-  height: 30rem;
   margin: auto;
   object-fit: cover;
   padding: 10px;
+}
+
+// carousel image height
+.carousel-item {
+  height: 35rem;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.carousel-item img {
+  position: absolute;
+  left: -1000%;
+  right: -1000%;
+  top: -1000%;
+  bottom: -1000%;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
 #card-show-mb-3 {
   position: relative;
   width: 50rem;
   margin: auto;
-  // height: 15rem;
+  height: 15rem;
 }
 
 #card-body-main {
@@ -40,13 +64,17 @@
 #map {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 15rem;
 }
 
 .card {
   overflow: hidden;
 }
 
+#info-show-container {
+  height: 15rem;
+  width: 100%;
+}
 .card-text {
   overflow-wrap: break-word;
   word-break: break-word;
@@ -67,10 +95,9 @@
 
 .icons {
     text-align: right;
-    // margin-top: 18%;
     position: absolute;
     bottom: 0px;
-    right: 5px;
+    margin-right: 10px;
 }
 
 .new-input {
@@ -91,4 +118,27 @@
 
 .show-link:hover {
   color :grey;
+}
+
+.dropzone {
+  border: .5px solid grey;
+  border-radius: 2px;
+}
+
+// Edit post
+
+.saved-images-box {
+  display: flex;
+  justify-content: center;
+}
+
+.saved-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  margin: 6px;
+}
+
+.remove-link {
+  color: grey;
 }

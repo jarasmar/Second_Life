@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
-  has_one_attached :main_image
+  has_many_attached :main_image
+
   before_save :capitalize_fields
 
   validate :acceptable_image
@@ -17,14 +18,16 @@ class Post < ApplicationRecord
 
   def acceptable_image
     return unless main_image.attached?
+    main_image.each do |image|
 
-    unless main_image.byte_size <= 4.megabyte
-      errors.add(:main_image, "has to be less than 4MB")
-    end
+      unless image.byte_size <= 4.megabyte
+        errors.add(:main_image, "has to be less than 4MB")
+      end
 
-    acceptable_types = ["image/jpeg", "image/png"]
-    unless acceptable_types.include?(main_image.content_type)
-      errors.add(:main_image, "must be a JPEG or PNG")
+      acceptable_types = ["image/jpeg", "image/png"]
+      unless acceptable_types.include?(image.content_type)
+        errors.add(:main_image, "must be a JPEG or PNG")
+      end
     end
   end
 

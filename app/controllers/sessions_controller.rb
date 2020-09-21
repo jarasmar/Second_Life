@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login
+  before_action :redirect_if_logged_in
   
   def create
     @user = User.find_by(username: params[:username])

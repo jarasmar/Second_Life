@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, :only => [:new, :create]
+  before_action :redirect_if_logged_in, :only => [:new, :create]
+  
   def new
     @user = User.new
   end
@@ -20,4 +22,5 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_posts = Post.where(user_id: @user.id)
   end
+
 end

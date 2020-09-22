@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   end
 
   get 'map', to: 'home#map'
+  get 'about', to: 'home#about'
   root 'home#index'
 end

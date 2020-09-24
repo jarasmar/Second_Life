@@ -1,22 +1,21 @@
 <div class="d-flex p-5 justify-content-center align-items-center" id="welcome-container">
     <div class="d-flex p-5" id="translucent"></div>
     <div class="card" id="welcome-card">
-        <div class="card-header" id="welcome-image"></div>
-            <div class="card-body">
-                <h1 class= "card-text">Welcome to Second Life</h1>
-                <p class="card-text"> Our society moves at a dizzying pace. New technologies and the concept of fast fashion cause us to get rid of our belongings more and more often.
-                Jeans from last season are no longer in fashion, and that lamp no longer matches your new cushion.
-                And it is so easy to replace them...
-                Unfortunately our planet does not have unlimited resources, our landfills are full and those objects that you do not want deserve a 'Second Life'</p><br>
-                <div class="card-footer">
-                  <p class="card-text"><strong> Want to join our community?</strong></p>
-                  <div class="row">
-                      <div class="col-sm-12">
-                          <div id="btnLogIn"><button type="button" class="btn btn-dark"><%= link_to "Login", '/login', method: :get, class: "home-btn"%></button></div>
-                          &nbsp; or &nbsp;
-                          <div id="btnSignUp"><button type="button" class="btn btn-dark"><%= link_to "Sign Up", '/profile/new', method: :get, class: "home-btn"%></button></div>
-                      </div>
-                  </div>
+        <div class="card-body">
+            <h1 class= "card-text">Welcome to Second Life</h1>
+            <br>
+            <p class="card-text"> Our society moves at a dizzying pace. New technologies and the concept of fast fashion cause us to get rid of our belongings more and more often.
+            Jeans from last season are no longer in fashion, and that lamp no longer matches your new cushion.
+            And it is so easy to replace them...
+            Unfortunately our planet does not have unlimited resources, our landfills are full and those objects that you do not want deserve a 'Second Life'</p><br>
+            <div class="card-footer">
+                <p class="card-text"><strong> Want to join our community?</strong></p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="btnLogIn"><button type="button" class="btn btn-dark"><%= link_to "Login", '/login', method: :get, class: "home-btn"%></button></div>
+                        &nbsp; or &nbsp;
+                        <div id="btnSignUp"><button type="button" class="btn btn-dark"><%= link_to "Sign Up", '/profile/new', method: :get, class: "home-btn"%></button></div>
+                    </div>
                 </div>
             </div>
         </div>

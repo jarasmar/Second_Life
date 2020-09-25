@@ -5,6 +5,8 @@ Our society moves at a dizzying pace. New technologies and the concept of fast f
 ## App Demo in Heroku
 https://second-life-app.herokuapp.com/
 
+![screenshot](./app/assets/images/screenshot.png)
+
 ## How does it work?
 An app based on Google Maps API where users can mark the exact location of any kind of goods left on the street for other people to collect. Posts can be made by the previous owner (the person leaving the goods outside) or by any other user that sees goods on the street (just need to take a picture and post it with the location).
 

@@ -26,7 +26,7 @@ As a user you will see a list of items and their locations, so you can easily go
 
 ### Two Main Views
 - **Main View:** Grid of posted items (image, title, begining of description, location, links) - Change to Map View
-- **Map View:** Map with pins (on click: image, title, begining of description, location, links) - Change to List View
+- **Map View:** Map with pins (on click: image, title, beginning of description, location, links) - Change to List View
 
 ### Posts
 - **Post Page:** picture, title, description, location, list of objects available, date and time, map.
@@ -36,11 +36,11 @@ As a user you will see a list of items and their locations, so you can easily go
 - **User Page:** profile information - my posted items - post new item
 
 ### Extra Features
-- Availability: client can mark items in the checklist if collected (1 point for owner) - owner can mark items as gone in the checklist too. 
+- Availability: client can mark items in the checklist if collected (1 point for owner) - owner can mark items as gone in the checklist too.
 - Display the last time a post was updated.
 - 'Filter by' options (date, nearby, keyword)
 - Tags: Furniture - Clothing - Kitchen - Garden - Sports/Games - Electronics - Family - Books/Music/Films - Pet Supplies - Reform Supplies - Other (default)
-- Customized alerts for new posted items (tag, keywords, location...)
+- Customised alerts for new posted items (tag, keywords, location...)
 - Weather advice when posting ('It's going to rain, better to wait until Thursday!')
 - Search bar for items by keywords
 - Adapt the web app into a mobile app (automatic location, access to the device camera)
@@ -73,4 +73,3 @@ We have done our feature testing with Capybara and our app has a 99.49% test cov
 
 ## Heroku App
 https://second-life-app.herokuapp.com/
-
